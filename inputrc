@@ -1,0 +1,36 @@
+# Disable bell
+set bell-style none
+
+# Enable keypad
+set enable-keypad on
+
+## Completion settings ##
+# better tab completion
+TAB: menu-complete
+
+set page-completions off
+set menu-complete-display-prefix on
+
+# list matches when ambiguous
+set show-all-if-ambiguous on
+
+# ignore case 
+set completion-ignore-case on
+
+# - and _ equivalent
+set completion-map-case on
+
+# find hidden files
+set match-hidden-files on
+
+# complete partial words
+set skip-completed-text on
+
+set visible-stats on
+
+## Partial command completion ##
+# arrow up
+"\e[A":history-search-backward
+
+# arrow down
+"\e[B":history-search-forward
