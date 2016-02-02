@@ -45,13 +45,12 @@ precmd() {
 	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
 }
 
-
 # History settings
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 unsetopt FLOW_CONTROL	# Disable <C-s> <C-q>
-bindkey -v				# Use vim keys for line editing
+# bindkey -v			# Use vim keys for line editing
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -66,7 +65,6 @@ fi
 
 # Completion configuration
 # :completion:function:completer:command:argument:tag.
-
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' group-name '' # Group suggestions by tags
 eval "$(dircolors -b)" # Load ls colors
