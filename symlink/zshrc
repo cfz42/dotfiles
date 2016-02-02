@@ -50,7 +50,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 unsetopt FLOW_CONTROL	# Disable <C-s> <C-q>
-# bindkey -v			# Use vim keys for line editing
+bindkey -e				# Use emacs keys for line editing (I'm hurt)
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
