@@ -3,35 +3,38 @@ export LANG='en_US.UTF-8'
 # Prompt configuration
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
-source ~/.git-prompt.sh
+
+# Git prompt functions (used in precmd)
+if [[ -f ~/.git-prompt.sh ]] then
+	source ~/.git-prompt.sh
+fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWCOLORHINTS=true
 
+LEFT_PROMPT='%n@%m:%~'
+COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+COLORED_RIGHT_PROMPT='%{$fg_no_bold[white]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+NEWLINE=$'\n'
+
+# Adds necessary padding to right align [jobs] | date (last exit status)
+right_align() {
+	local PADDING=''
+	local PADDING_CHAR=' '
+
+	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
+	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
+	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1) ))
+	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
+	do PADDING=${PADDING}${PADDING_CHAR};
+	done
+	echo $PADDING
+}
+
 precmd() {
-	local LEFT_PROMPT='%n@%m:%~'
-	#local COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-	local COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-	local COLORED_RIGHT_PROMPT='%{$fg_no_bold[white]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
-	local NEWLINE=$'\n'
 	local LAST_EXIT_STATUS=$?
-
-	# Adds necessary padding to right align [jobs] | date (last exit status)
-	right_align() {
-		local PADDING=''
-		local PADDING_CHAR=' '
-
-		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
-		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1) ))
-		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
-		do PADDING=${PADDING}${PADDING_CHAR};
-		done
-		echo $PADDING
-	}
-
 	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
 		RIGHT_PROMPT='[%j] | %*'
 	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
@@ -41,6 +44,7 @@ precmd() {
 	fi
 	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
 }
+
 
 # History settings
 setopt HIST_IGNORE_ALL_DUPS
@@ -56,7 +60,9 @@ HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -U compinit
-source ~/.git-completion.zsh
+if [[ -f ~/.git-completion.zsh ]] then
+	source ~/.git-completion.zsh
+fi
 compinit
 
 # Completion configuration

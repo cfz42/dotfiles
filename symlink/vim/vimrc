@@ -1,0 +1,145 @@
+set term=screen-256color
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let mapleader=","					" Main shortcuts
+let localleader=' '					" Localleader to avoid conflicts
+
+set mouse=a
+
+" Section: Plugins {{{1
+" =====================
+
+" Set correct runtimepath
+"set nocompatible
+execute pathogen#infect()
+execute pathogen#helptags()
+filetype plugin indent on 			" Load file specific plugins/indent settings
+
+" Open man pages in vim
+source $VIMRUNTIME/ftplugin/man.vim
+nnoremap <leader>K :Man <cword><cr><c-w>L
+nnoremap K :Man <cword><cr><c-w>L
+
+" Syntastic C flags
+let g:syntastic_c_compiler = "clang"
+let g:syntastic_c_compiler_options = "-Wall -Wextra"
+let g:syntastic_c_include_dirs = ['libft/inc']
+let g:syntastic_c_check_header = "1"
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_html_tidy_exec = 'tidy5'
+"}}}
+
+" Section: Options {{{1
+" =====================
+
+" Folding {{{2
+" set foldcolumn=4
+set foldmethod=indent
+" }}}
+
+" General settings {{{2
+set encoding=utf8					" Set correct encoding
+set t_Co=256						" Set 256 colors
+set hidden							" Allow to hide buffer instead of closing it
+"}}}
+
+" Indentation settings {{{2
+set tabstop=4						" <tab> is 4 spaces large	
+set shiftwidth=4					" Indent with 4 spaces
+set smarttab						" Intelligent <tab> insertion
+set autoindent						" Keep same indent on newline
+set cindent							" Use C-style indentation
+"}}}
+
+" Customization {{{2
+if &t_Co == 256 || has("gui_running")
+	syntax on
+	set background=dark				" Set dark background
+	colorscheme hybrid
+	set hlsearch					" Highlight search results
+endif
+
+set number							" Display only the current line as absolute
+set laststatus=2					" Always show status line
+set statusline=%f\ -\ FileType:\ %y%=\ Col:\ %c\ Line:\ %l/%L\ Foldlevel:\ %{v:foldlevel}\ %m
+set cursorline						" Display current line
+set showmatch						" Display matching braces
+set showcmd							" Show commands as you type them
+set showmode						" Always show the current mode
+"}}}
+
+" Command line completion {{{2
+set wildmenu						" Show more results on <tab>
+set wildmode=list:longest,full		" Show them all
+"}}}
+
+" Split settings {{{2
+set splitbelow						" Force new windows to open below..
+set splitright						" .. on the right
+"}}}
+
+"}}}
+
+" Section: Autocommands {{{1
+" ======================
+
+" Do not set .h files as cpp
+autocmd BufNewFile,BufReadPost *.h setlocal filetype=c
+autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
+autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
+
+autocmd FileType h,c,cpp setlocal colorcolumn=80
+autocmd FileType help,man wincmd L					" Display man/help pages in a split
+
+"}}}
+
+" Section: Mappings {{{1
+" =======================
+
+" Hit <esc> quicker
+inoremap jk <esc>
+snoremap jk <esc>
+
+" Disable highlighting
+nnoremap <leader>/ :nohlsearch<cr>
+inoremap <leader>/ :nohlsearch<cr>
+
+" Navigate through wrapped lines {{{2
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+" }}}
+
+" Navigate through tabs {{{2
+nnoremap <c-l> :tabnext<cr>
+nnoremap <c-h> :tabprevious<cr>
+nnoremap <c-n> :tabnew<cr>
+nnoremap <c-c> :tabclose<cr>
+nnoremap <c-e> :tabedit 
+" }}}
+
+"Navigate through splits {{{2
+nnoremap <Tab>l <c-w>l
+nnoremap <Tab>h <c-w>h
+nnoremap <Tab>j <c-w>j
+nnoremap <Tab>k <c-w>k
+"}}}
+
+" Quick access to NERDTree
+nnoremap <leader>b :NERDTreeToggle<cr>
+
+" Quickly edit vimrc
+nnoremap <leader>ev :vs ~/.vim/vimrc<cr>
+
+" Quickly edit snippets
+nnoremap <leader>sni :vs ~/.vim/bundle/vim-snippets/snippets<cr>
+
+" Save / Close files
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>wq :wq<cr>
+
+"}}}
