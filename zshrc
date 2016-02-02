@@ -56,6 +56,7 @@ HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -U compinit
+source ~/.git-completion.zsh
 compinit
 
 # Completion configuration
