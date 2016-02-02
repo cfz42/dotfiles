@@ -1,3 +1,5 @@
+export LANG='en_US.UTF-8'
+
 # Prompt configuration
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
@@ -10,7 +12,8 @@ GIT_PS1_SHOWCOLORHINTS=true
 
 precmd() {
 	local LEFT_PROMPT='%n@%m:%~'
-	local COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~%{$reset_color%}'
+	#local COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+	local COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
 	local COLORED_RIGHT_PROMPT='%{$fg_no_bold[white]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
 	local NEWLINE=$'\n'
 	local LAST_EXIT_STATUS=$?
@@ -22,7 +25,7 @@ precmd() {
 
 		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
 		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 6) ))
+		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1) ))
 		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
 		do PADDING=${PADDING}${PADDING_CHAR};
 		done
@@ -36,7 +39,7 @@ precmd() {
 	else
 		RIGHT_PROMPT='[%j] | %* %?⤶ '
 	fi
-	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "${fg_no_bold[blue]}%s${reset_color}"
+	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
 }
 
 # History settings
@@ -52,24 +55,20 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
-autoload -Uz compinit
+autoload -U compinit
 compinit
-
-setopt complete_in_word
 
 # Completion configuration
 # :completion:function:completer:command:argument:tag.
 
 #zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _complete _correct _approximate
 #zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
-
-# Load ls colors
-eval "$(dircolors -b)"
+zstyle ':completion:*' insert-tab false
+eval "$(dircolors -b)" # Load ls colors
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
-
 #zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' menu select # Enable arrows
@@ -86,7 +85,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias gst='git status'
-alias glg='git log --oneline'
+alias glg='git log --oneline --decorate'
 alias glgg='git log --oneline --decorate --graph'
 alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
