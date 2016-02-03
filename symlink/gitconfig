@@ -1,0 +1,17 @@
+[user]
+	email = clement.frndz@gmail.com
+	name = Clément FERNANDEZ
+[color]
+	ui = true
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = true
+[mergetool]
+	prompt = false
+[difftool "vimdiff"]
+	path = /nfs/zfs-student-2/users/cfernand/.brew/bin/vimdiff

@@ -42,6 +42,7 @@ set foldmethod=indent
 " General settings {{{2
 set encoding=utf8					" Set correct encoding
 set t_Co=256						" Set 256 colors
+set backspace=indent,eol,start
 set hidden							" Allow to hide buffer instead of closing it
 "}}}
 

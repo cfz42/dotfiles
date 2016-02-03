@@ -6,7 +6,7 @@
 "    By: zaz <zaz@staff.42.fr>                      +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2013/06/15 12:45:56 by zaz               #+#    #+#              "
-"    Updated: 2013/07/26 16:59:00 by zaz              ###   ########.fr        "
+"    Updated: 2016/02/03 16:22:12 by cfernand         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -186,6 +186,6 @@ function s:update ()
 	endif
 endfunction
 
-command Stdheader call s:insert ()
-nmap <F1> :Stdheader<CR>
+command Stdheader42 call s:insert ()
+nmap <F1> :Stdheader42<CR>
 autocmd BufWritePre * call s:update ()

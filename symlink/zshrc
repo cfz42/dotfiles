@@ -67,7 +67,9 @@ fi
 # :completion:function:completer:command:argument:tag.
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' group-name '' # Group suggestions by tags
-eval "$(dircolors -b)" # Load ls colors
+if [[ -x /usr/bin/dircolors ]]; then
+	eval "$(dircolors -b)" # Load ls colors
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
@@ -80,9 +82,12 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+export CLICOLOR=1 # Toggle ls colors on Mac / BSD
 # Aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+if [[ -x /usr/bin/dircolors ]]; then
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+fi
 alias gst='git status'
 alias glg='git log --oneline --decorate'
 alias glgg='git log --oneline --decorate --graph'
@@ -90,6 +95,11 @@ alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
 
 alias tmux='tmux -2'
+
+if [[ -x $HOME/.brew/bin/vim ]]; then
+	alias vim='$HOME/.brew/bin/vim'
+	alias vimdiff='$HOME/.brew/bin/vimdiff'
+fi
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
