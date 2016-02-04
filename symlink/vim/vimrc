@@ -1,4 +1,9 @@
 set term=screen-256color
+" a =~ b -> a matches b
+if &term =~ '^screen'
+	" tmux knows the extended mouse mode
+	set ttymouse=xterm2
+endif
 
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

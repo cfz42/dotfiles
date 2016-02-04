@@ -13,5 +13,3 @@
 	prompt = true
 [mergetool]
 	prompt = false
-[difftool "vimdiff"]
-	path = /nfs/zfs-student-2/users/cfernand/.brew/bin/vimdiff

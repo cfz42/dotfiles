@@ -26,7 +26,7 @@ right_align() {
 
 	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
 	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1) ))
+	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1 + 2) )) # +2 in Konsole
 	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
 	do PADDING=${PADDING}${PADDING_CHAR};
 	done
@@ -88,13 +88,20 @@ if [[ -x /usr/bin/dircolors ]]; then
 	alias ls='ls --color=auto'
 	alias grep='grep --color=auto'
 fi
+
+# Git aliases
 alias gst='git status'
 alias glg='git log --oneline --decorate'
 alias glgg='git log --oneline --decorate --graph'
 alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
+alias grv='git remote -v'
+alias grs='git remote show'
+alias grso='git remote show origin'
 
-alias tmux='tmux -2'
+alias tmux='tmux -2' # Force tmux to use 256 colors
+
+alias l='ls -lh'
 
 if [[ -x $HOME/.brew/bin/vim ]]; then
 	alias vim='$HOME/.brew/bin/vim'
