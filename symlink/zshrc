@@ -82,7 +82,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-export CLICOLOR=1 # Toggle ls colors on Mac / BSD
+export CLICOLOR=1 # Enable command line colors on Mac / BSD (eg: ls output)
+
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
 	alias ls='ls --color=auto'
@@ -102,11 +103,6 @@ alias grso='git remote show origin'
 alias tmux='tmux -2' # Force tmux to use 256 colors
 
 alias l='ls -lh'
-
-if [[ -x $HOME/.brew/bin/vim ]]; then
-	alias vim='$HOME/.brew/bin/vim'
-	alias vimdiff='$HOME/.brew/bin/vimdiff'
-fi
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
