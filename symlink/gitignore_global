@@ -1,0 +1,31 @@
+# Compiled stuff
+################
+*.o
+*.dll
+*.exe
+*.so
+*.a
+
+# Packages
+##########
+# It's better to unpack and commit raw files,
+# git has its own compression methods
+*.7z
+*.iso
+*.tar
+*.gz
+*.zip
+
+# Editor swap files
+###################
+*.sw[abcdefghijklmnop]
+
+# OS generated files
+####################
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+.Spotlight-V100
+Thumbs.db
+.netrwhist

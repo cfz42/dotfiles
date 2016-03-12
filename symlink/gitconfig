@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	editor = vim
+	excludesfile = /home/clement/.gitignore_global
 [diff]
 	tool = vimdiff
 [merge]
