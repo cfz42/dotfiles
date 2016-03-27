@@ -13,3 +13,6 @@
 [submodule "symlink/vim/bundle/vim-snippets"]
 	path = symlink/vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "symlink/vim/bundle/vim-javascript"]
+	path = symlink/vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
