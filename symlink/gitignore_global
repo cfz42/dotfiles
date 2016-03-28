@@ -29,3 +29,7 @@
 .Spotlight-V100
 Thumbs.db
 .netrwhist
+
+# node_modules
+node_modules/
+*/node_modules/
