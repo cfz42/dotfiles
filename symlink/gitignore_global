@@ -19,6 +19,7 @@
 # Editor swap files
 ###################
 *.sw[abcdefghijklmnop]
+*~
 
 # OS generated files
 ####################
@@ -33,3 +34,6 @@ Thumbs.db
 # node_modules
 node_modules/
 */node_modules/
+
+# Jetbrains 
+.idea/

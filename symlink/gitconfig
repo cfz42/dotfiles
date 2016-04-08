@@ -6,6 +6,8 @@
 [core]
 	editor = vim
 	excludesfile = /home/clement/.gitignore_global
+	trustctime = false
+	autocrlf = true
 [diff]
 	tool = vimdiff
 [merge]
@@ -17,3 +19,5 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+[push]
+	default = simple
