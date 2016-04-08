@@ -99,6 +99,7 @@ alias gck='git checkout'
 alias grv='git remote -v'
 alias grs='git remote show'
 alias grso='git remote show origin'
+alias gp='git pull'
 
 alias tmux='tmux -2' # Force tmux to use 256 colors
 

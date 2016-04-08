@@ -43,6 +43,9 @@ let g:syntastic_c_check_header = "1"
 "let g:syntastic_cpp_check_header = 1
 "let g:syntastic_html_tidy_exec = 'tidy5'
 
+" Syntastic javascript
+let g:syntastic_javascript_checkers = ['eslint']
+
 " set foldcolumn=4
 set mouse+=a
 
@@ -60,7 +63,7 @@ set cindent							" Use C-style indentation
 set hlsearch						" Highlight search results
 set number							" Display line number 
 set laststatus=2					" Always show status line
-set statusline=%f\ -\ FileType:\ %y%=\ Col:\ %c\ Line:\ %l/%L\ Foldlevel:\ %{v:foldlevel}\ %m
+set statusline=%f\ -\ FileType:\ %y%=\ Col:\ %c\ Line:\ %l/%L\ %{SyntasticStatuslineFlag()}\ %m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them
@@ -120,3 +123,6 @@ nnoremap <leader>sni :vs ~/.vim/bundle/vim-snippets/snippets<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>wq :wq<cr>
+
+" Faster autocomplete
+inoremap <c-o> <c-n>
