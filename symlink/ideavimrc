@@ -1,0 +1,7 @@
+nnoremap gg=G :action ReformatCode<CR>
+inoremap jk <ESC>
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <TAB>l <C-W>l
+nnoremap <TAB>h <C-W>h

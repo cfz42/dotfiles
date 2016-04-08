@@ -7,7 +7,7 @@
 	editor = vim
 	excludesfile = /home/clement/.gitignore_global
 	trustctime = false
-	autocrlf = true
+	autocrlf = input
 [diff]
 	tool = vimdiff
 [merge]

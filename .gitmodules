@@ -16,3 +16,6 @@
 [submodule "symlink/vim/bundle/vim-javascript"]
 	path = symlink/vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "symlink/vim/bundle/vim-surround"]
+	path = symlink/vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
