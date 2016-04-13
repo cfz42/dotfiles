@@ -53,13 +53,11 @@ set foldmethod=indent
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
-
 set tabstop=4						" <tab> is 4 spaces large	
 set shiftwidth=4					" Indent with 4 spaces
 set smarttab						" Intelligent <tab> insertion
 set autoindent						" Keep same indent on newline
 set cindent							" Use C-style indentation
-
 set hlsearch						" Highlight search results
 set number							" Display line number 
 set laststatus=2					" Always show status line
@@ -68,10 +66,8 @@ set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them
 set showmode						" Always show the current mode
-
 set wildmenu						" Show more results on <tab>
 set wildmode=list:longest,full		" Show them all
-
 set splitbelow						" Force new windows to open below..
 set splitright						" .. on the right
 
