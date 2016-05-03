@@ -108,3 +108,9 @@ alias l='ls -lh'
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
+
+# Key bindings
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+bindkey "\e[3~" delete-char
+

@@ -1,5 +1,5 @@
 " Compatibility with tmux
-set term=screen-256color
+" set term=screen-256color
 if has("mouse_sgr")
 	set ttymouse=sgr
 else
@@ -12,7 +12,7 @@ end
 "set t_Co=256						" Set 256 colors
 if &t_Co == 256 || has("gui_running")
 	syntax enable
-	set background=dark		" Set dark background
+	"set background=dark		" Set dark background
 	"let g:solarized_termcolors=256
 	colorscheme hybrid
 endif
@@ -46,6 +46,9 @@ let g:syntastic_c_check_header = "1"
 " Syntastic javascript
 let g:syntastic_javascript_checkers = ['eslint']
 
+" ignore whitespaces in vimdiff
+set diffopt+=iwhite
+
 " set foldcolumn=4
 set mouse+=a
 
@@ -61,7 +64,7 @@ set cindent							" Use C-style indentation
 set hlsearch						" Highlight search results
 set number							" Display line number 
 set laststatus=2					" Always show status line
-set statusline=%f\ -\ FileType:\ %y%=\ Col:\ %c\ Line:\ %l/%L\ %{SyntasticStatuslineFlag()}\ %m
+set statusline=%f\ -\ %y%=\ %l/%L\ [%c]%{SyntasticStatuslineFlag()}\ %m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them

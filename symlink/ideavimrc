@@ -3,5 +3,7 @@ inoremap jk <ESC>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap ;; msA;<ESC>`s
+
 nnoremap <TAB>l <C-W>l
 nnoremap <TAB>h <C-W>h
