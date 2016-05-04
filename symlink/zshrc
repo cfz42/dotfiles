@@ -102,12 +102,17 @@ alias grso='git remote show origin'
 alias gp='git pull'
 alias gres='git reset'
 
-alias tmux='tmux -2' # Force tmux to use 256 colors
+# alias tmux='tmux -2' # Force tmux to use 256 colors
 
 alias l='ls -lh'
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
+
+if [[ -x $HOME/.brew/bin/brew ]]; then
+	export PATH="$HOME/.brew/bin:$PATH"
+	export HOMEBREW_CACHE="/tmp/homebrew_cache"
+fi
 
 # Key bindings
 bindkey "\e[1~" beginning-of-line

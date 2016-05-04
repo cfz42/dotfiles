@@ -64,7 +64,7 @@ set cindent							" Use C-style indentation
 set hlsearch						" Highlight search results
 set number							" Display line number 
 set laststatus=2					" Always show status line
-set statusline=%f\ -\ %y%=\ %l/%L\ [%c]%{SyntasticStatuslineFlag()}\ %m
+set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them
