@@ -9,7 +9,7 @@ end
 " If problems with regexes in vim-javascript, uncomment below
 " set regexpengine=1
 
-"set t_Co=256						" Set 256 colors
+set t_Co=256						" Set 256 colors
 if &t_Co == 256 || has("gui_running")
 	syntax enable
 	"set background=dark		" Set dark background

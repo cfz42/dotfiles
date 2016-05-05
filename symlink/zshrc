@@ -102,7 +102,7 @@ alias grso='git remote show origin'
 alias gp='git pull'
 alias gres='git reset'
 
-# alias tmux='tmux -2' # Force tmux to use 256 colors
+alias tmux='tmux -2' # Force tmux to use 256 colors
 
 alias l='ls -lh'
 
