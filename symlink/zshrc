@@ -16,7 +16,7 @@ GIT_PS1_SHOWCOLORHINTS=true
 
 LEFT_PROMPT='%n@%m:%~'
 COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-COLORED_RIGHT_PROMPT='%{$fg_no_bold[white]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
 NEWLINE=$'\n'
 
 # Adds necessary padding to right align [jobs] | date (last exit status)
@@ -26,7 +26,7 @@ right_align() {
 
 	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
 	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 1 + 2) )) # +2 in Konsole
+	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
 	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
 	do PADDING=${PADDING}${PADDING_CHAR};
 	done
