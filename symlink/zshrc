@@ -49,7 +49,11 @@ precmd() {
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
+if [[ -x /usr/bin/stty ]]; then
+	/usr/bin/stty -ixon		# Disable <C-s> <C-q>
+fi
 unsetopt FLOW_CONTROL	# Disable <C-s> <C-q>
+setopt noflowcontrol	# Disable <C-s> <C-q>
 bindkey -e				# Use emacs keys for line editing (This hurts a lot)
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
@@ -84,6 +88,20 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 export CLICOLOR=1 # Enable command line colors on Mac / BSD (eg: ls output)
 
+# Colored man pages with less
+man() {
+	env LESS_TERMCAP_mb=$'\E[01;31m' \
+		LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+		LESS_TERMCAP_me=$'\E[0m' \
+		LESS_TERMCAP_se=$'\E[0m' \
+		LESS_TERMCAP_so=$'\E[38;5;246m' \
+		LESS_TERMCAP_ue=$'\E[0m' \
+		LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+		man "$@"
+}
+export GROFF_NO_SGR=1
+
+
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
 	alias ls='ls --color=auto'
@@ -92,7 +110,9 @@ fi
 
 # Git aliases
 alias gst='git status'
-alias glg='git log --oneline --decorate'
+alias gsb='git status -sb'
+alias glg='git log --decorate'
+alias glo='git log --oneline --decorate'
 alias glgg='git log --oneline --decorate --graph'
 alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
@@ -100,9 +120,14 @@ alias grv='git remote -v'
 alias grs='git remote show'
 alias grso='git remote show origin'
 alias gp='git pull'
+alias gf='git fetch --all'
 alias gres='git reset'
+alias gdt='git difftool'
+alias gmt='git mergetool'
+alias gb='git branch'
+alias gcp='git cherry-pick'
 
-alias tmux='tmux -2' # Force tmux to use 256 colors
+#alias tmux='tmux -2' # Force tmux to use 256 colors
 
 alias l='ls -lh'
 
@@ -119,3 +144,6 @@ bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[3~" delete-char
 
+if [[ "$COLORTERM" == "xfce4-terminal" && -z "$TMUX" ]]; then
+	export TERM=xterm-256color
+fi

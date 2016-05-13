@@ -4,12 +4,11 @@ execute pathogen#infect()
 execute pathogen#helptags()
 filetype plugin indent on 			" Load file specific plugins/indent settings
 
-" Enable if mouse problems show up
-"if has("mouse_sgr")
-"	set ttymouse=sgr
-"else
-"	set ttymouse=xterm2
-"end
+if has("mouse_sgr")
+	set ttymouse=sgr
+else
+	set ttymouse=xterm2
+end
 
 " If problems with regexes in vim-javascript, uncomment below
 " set regexpengine=1
@@ -22,19 +21,22 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let mapleader=","					" Main shortcuts
 let localleader=' '					" Localleader to avoid conflicts
 
-" Set 256 colors
-set t_Co=256
-if &t_Co == 256 || has("gui_running")
-	syntax on
-	set background=light
-	colorscheme solarized
-endif
+" Enable syntax highlighting
+syntax enable
+
+set background=dark
+colorscheme solarized
+"colorscheme hybrid
+
+highlight VertSplit   ctermbg=bg
+highlight Folded      term=none cterm=none
+highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
 
 " Open man pages in vim and bind K to split them
 runtime ftplugin/man.vim
 nnoremap K :Man <cword><cr><c-w>L
 
-" Syntastic C flags
+" C syntastic config
 let g:syntastic_c_compiler = "clang"
 let g:syntastic_c_compiler_options = "-Wall -Wextra"
 let g:syntastic_c_include_dirs = ['libft/inc']
@@ -42,26 +44,34 @@ let g:syntastic_c_check_header = "1"
 "let g:syntastic_cpp_check_header = 1
 "let g:syntastic_html_tidy_exec = 'tidy5'
 
-" Syntastic javascript
+" Javascript syntastic config
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Asm syntastic config
+let g:syntastic_asm_compiler = "nasm"
 
 " ignore whitespaces in vimdiff
 set diffopt+=iwhite
 
-" set foldcolumn=4
 set mouse+=a
 
+set foldcolumn=4
 set foldmethod=indent
+
+set pastetoggle=<F2>				" Quickly paste huge buffers
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
-set tabstop=4						" <tab> is 4 spaces large	
+set tabstop=4						" <tab> is 4 spaces large (visually)
+set softtabstop=4					" <tab> in i mode is 4 spaces large	
 set shiftwidth=4					" Indent with 4 spaces
 set smarttab						" Intelligent <tab> insertion
 set autoindent						" Keep same indent on newline
 set cindent							" Use C-style indentation
 set hlsearch						" Highlight search results
+set incsearch						" Search as soon as we type
 set number							" Display line number 
+set rnu								" Display relative num (except current line in vim >= 7.4)
 set laststatus=2					" Always show status line
 set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
 set cursorline						" Display current line
@@ -79,13 +89,14 @@ autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
 autocmd FileType h,c,cpp setlocal colorcolumn=80
+
 autocmd FileType help,man wincmd L					" Display man/help pages in a split
 
 " Hit <esc> quicker
 inoremap jk <esc>
 snoremap jk <esc>
 
-" Disable highlighting
+" Mapping to disable highlighting
 nnoremap <leader>/ :nohlsearch<cr>
 inoremap <leader>/ :nohlsearch<cr>
 
@@ -98,9 +109,7 @@ vnoremap k gk
 " Navigate through tabs
 nnoremap <c-l> :tabnext<cr>
 nnoremap <c-h> :tabprevious<cr>
-nnoremap <c-n> :tabnew<cr>
-nnoremap <c-c> :tabclose<cr>
-nnoremap <c-e> :tabedit 
+nnoremap <c-n> :tabedit 
 
 "Navigate through splits
 nnoremap <Tab>l <c-w>l
@@ -121,6 +130,3 @@ nnoremap <leader>sni :vs ~/.vim/bundle/vim-snippets/snippets<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>wq :wq<cr>
-
-" Faster autocomplete
-inoremap <c-o> <c-n>
