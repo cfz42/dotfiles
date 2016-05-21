@@ -1,0 +1,221 @@
+2016-05-12 07:55:48	-->	cfernand (cfernand@irc.tinyspeck.com) has joined #bocal
+2016-05-12 07:55:48	--	Topic for #bocal is "Faites remontrer vos problèmes ici. Tout troll sera banni. || https://meta.intra.42.fr/issues"
+2016-05-12 07:55:48	--	Channel #bocal: 1419 nicks (0 ops, 0 voices, 1419 normals)
+2016-05-12 07:55:57	--	Channel created on Thu, 12 May 2016 07:56:03
+2016-05-12 07:59:37	--	irc: disconnected from server
+2016-05-12 07:59:54	-->	cfernand (cfernand@irc.tinyspeck.com) has joined #bocal
+2016-05-12 07:59:54	--	Topic for #bocal is "Faites remontrer vos problèmes ici. Tout troll sera banni. || https://meta.intra.42.fr/issues"
+2016-05-12 07:59:54	--	Channel #bocal: 1419 nicks (0 ops, 0 voices, 1419 normals)
+2016-05-12 08:00:09	--	Channel created on Thu, 12 May 2016 08:00:15
+2016-05-12 09:21:41	eduriot	Bonjour, ca vient de freeze violemment ici..
+2016-05-12 12:21:29	aboualav	je viens de lire un mail, comme quoi les corrections de piscine allait être close des 1er Juin et que les corrections non faites allait nous couter des point de correc’.
+2016-05-12 12:21:29	aboualav	pb je suis en Stage depuis un bon bout de temps déjà et il me manque pas mal de correction pour validé ma piscine PHP, comme si ca ne suffisais pas… mon stage se termine en juin ! aux alentours du 22-26 Juin 
+2016-05-12 12:21:29	aboualav	quelles sont les solutions qui s’offrent a moi ? si je ne veux pas forcement recommencer ma piscine php pour rien ( du fait que je n’ai pas fait suffisamment de corrections pour la validé )?
+2016-05-12 12:25:23	bodo	@aboualav: go #pedago :simple_smile:
+2016-05-12 12:34:02	aboualav	merci je vais voir ca avec eux alors !!
+2016-05-12 12:34:21	bodo	pas de soucis !
+2016-05-12 12:59:52	cdrouet	@asmets: https://42born2code.slack.com/archives/intra-bug/p1463040704000481 
+2016-05-12 13:15:41	sdjeffal	Bonjour, depuis une ou deux semaine dès que j’arrive sur ma session j’ai une erreur qui s’affiche dont le titre est "CoreTelephony Trace File Error”.
+2016-05-12 13:38:01	xitope	ok
+2016-05-12 14:00:56	rambo	meme erreur que @sdjeffal
+2016-05-12 14:46:00	mlk	Bah tu cliques le :plus1:
+2016-05-12 14:50:22	-->	jubarbie (jubarbie@irc.tinyspeck.com) has joined #bocal
+2016-05-12 15:03:08	-->	mbouzian (mbouzian@irc.tinyspeck.com) has joined #bocal
+2016-05-12 15:37:02	-->	sbouyahi (sbouyahi@irc.tinyspeck.com) has joined #bocal
+2016-05-12 15:48:18	jcarraro	bonjour, j'utilisait firefox normalement depuis le debut de la journée puis d'un coup il a crash et plus moyen de l'ouvrir a cause de `Profile manquant````Le profil Firefox ne peut être chargé. Il est peut-être manquant ou inaccessible.```
+2016-05-12 15:53:32	kathiouchka	@jcarraro: http://bfy.tw/5j7b 
+2016-05-12 16:06:51	snosky	Bonjour, le fichier tar ressources du D07 Piscine PHP est corrompu.
+2016-05-12 16:07:31	noich	Hello, je regarde
+2016-05-12 16:08:43	noich	Il marche tres bien chez moi, peux tu etre plus precis sur le pb ? @snosky
+2016-05-12 16:08:45	jcarraro	je n'avais pas accès a application support pour suprimer le ficher de firefox, j'ai delog/relog et mes bibliothèque ont été reset, sa remarche
+2016-05-12 16:10:53	snosky	Quand on clique sur le fichier via le finder on as "file is damaged" et via tar on a "Operation not permitted". Mais ça a fini par fonctionne.
+2016-05-12 16:11:28	noich	tu l'ouvre avec tar xf j07.tgz depuis ton term il refuse?
+2016-05-12 16:11:46	snosky	Oui mais j'ai insisté et ça a fini par fonctionne
+2016-05-12 16:12:24	noich	Okok
+2016-05-12 16:33:39	-->	itab (itab@irc.tinyspeck.com) has joined #bocal
+2016-05-12 23:51:13	teemo	@teemo uploaded a file: Screen Shot 2016-05-12 at 11.50.20 PM.png https://42born2code.slack.com/files/teemo/F18GPPZ7S/screen_shot_2016-05-12_at_11.50.20_pm.png  and commented: Hello, est-ce qu’un d’entre vous aurait cette image sans le 42 paris et la textbox, impossible de la trouver (et celle de l’intra a un contraste trop faible :disappointed: )
+2016-05-13 00:01:45	tcizain	http://i.imgur.com/NUt80oK.png  Trouvé en 3 minutes grâce à google, merci
+2016-05-13 00:02:10	tcizain	(http://imgur.com/gallery/60cUg )
+2016-05-13 00:02:33	tcoppin	Tcizain t'es trop fort pour nous..
+2016-05-13 00:02:40	tcizain	Je sais.
+2016-05-13 00:03:14	teemo	je devais pas avoir les bons mots cle. Thanks!
+2016-05-13 00:04:45	tcizain	(on peut faire des recherches par images sur google, j'ai juste fais click droit -> `Search Google for this image` hein)
+2016-05-13 00:06:07	teemo	je suis un gros boulet par contre, ca fait 1 heure que je cherche sur le sgoinfre au lieu de faite ca ><
+2016-05-13 07:00:52	lain	3min pour fair un click droit du coup
+2016-05-13 10:41:45	yanis	Bonjour, est ce normal de ne pas pouvoir ce log sur les macs ?
+2016-05-13 10:42:14	kathiouchka	T'es pas :lock:  ?
+2016-05-13 10:42:36	yanis	Pas que je sache
+2016-05-13 10:44:44	yanis	Bon apriori ca vient des deux pc sur lesquels jai essaye de me log. E3R12P1 et E3R11P2 si jamais
+2016-05-13 11:05:39	bodo	surprenant, mais je note tout de même, je viendrais voir ça dans la journée, merci @yanis
+2016-05-13 12:09:58	bngo	L'alerte bruit pop sans arrêt en e3r3p9
+2016-05-13 12:21:11	espiroux	Nouveau groupe : https://forum.intra.42.fr/topics/5092/messages 
+2016-05-13 12:24:38	pguillot	.
+2016-05-13 12:27:56	bngo	lol
+2016-05-13 12:27:58	lain	Faite moins de bruit :D
+2016-05-13 14:20:27	zaz	pan.
+2016-05-13 14:33:42	kpedro	C’est vrai que ca pop non stop :disappointed:
+2016-05-13 14:36:09	everchild	+1
+2016-05-13 14:36:21	everchild	avec du "attention, 44 decibels !"
+2016-05-13 14:39:03	pguillot	c'est que vous faites trop de bruit :confused:
+2016-05-13 14:39:32	everchild	faut savoir, la limite elle est a 44 ou 70 ? :disappointed:
+2016-05-13 14:41:07	bngo	c'est pas que on fait trop de bruit, c'est que le poste fait pop l'alert alors que sur les postes qui se trouvent juste a cote il n'y a rien
+2016-05-13 14:45:35	xitope	Nan mais en fait la vous etes juste bruyant ..
+2016-05-13 15:04:14	-->	ocofooty (ocofooty@irc.tinyspeck.com) has joined #bocal
+2016-05-13 15:06:39	jb	J’ai un prob avec la commande leaks sur plusieurs machines, besoin du nom et password pour les “Developer Tools”..
+2016-05-13 15:06:55	le_canadien	exam
+2016-05-13 15:06:55	le_canadien	exam
+2016-05-13 15:07:53	le_canadien	aah, c'est pas ce que je pensait, le popup c'est different que dans le term. :S
+2016-05-13 15:20:12	qubi	@jb: Ticket avec le numero du poste, tag Software. @xitope jettera un oeil quand il aura le temps
+2016-05-13 15:21:02	jb	c’est bon c’est regle @qubi exam exam depuis le terminal :slightly_smiling_face:
+2016-05-13 15:21:38	qubi	Nan mais il nous faut quand même le ticket avec le poste en question. C’est un soucis réglé normalement, vous ne devriez plus avoir besoin de tricker pour accèder aux Dev Tools.
+2016-05-13 15:22:13	jb	ok
+2016-05-13 15:22:46	le_canadien	C'est ou qu'on "report" ? mon poste aussi avais ce soucis.
+2016-05-13 15:22:58	bodo	meta.intra.42.fr/issues 
+2016-05-13 15:23:28	bodo	ou à partir du forum, au lieu de créer un nouveau topic, tu crées un nouveau ticket :simple_smile:
+2016-05-13 15:23:39	jb	je dirais apres questionnement de mon entourage proche, qu’au moins une bonne partie de la rangee 7 en e2
+2016-05-13 15:23:59	jb	perso je suis en e2r7p3
+2016-05-13 15:31:17	rambo	Problème de notifs à l'e3 là...
+2016-05-13 15:31:24	le_canadien	jatteste
+2016-05-13 15:31:45	rambo	Y'a genre zéro bruit la popup s'arrête plus depuis 1 minute
+2016-05-13 15:31:57	le_canadien	d i ff i cile de s'en plaindre.
+2016-05-13 15:32:15	rambo	C'est clair ah ah je suis sur mon portable
+2016-05-13 15:32:22	kurgerbing	j'ai une solution
+2016-05-13 15:32:24	rambo	@noich: ?
+2016-05-13 15:32:26	kurgerbing	allez dans un vari cluster
+2016-05-13 15:32:38	kurgerbing	aka 2 1
+2016-05-13 15:33:00	inky	gros bug avec les pop up en e3
+2016-05-13 15:33:08	noich	@zaz sorry
+2016-05-13 15:33:16	rambo	Ok désolé
+2016-05-13 15:33:46	rambo	C'est pas tout le cluster on dirait, mais les 3 dernières rangées du fond à droite on est tous bloqués
+2016-05-13 15:34:11	kurgerbing	qqun a mis son casque sur le micro
+2016-05-13 15:34:13	kurgerbing	la bonne technique
+2016-05-13 15:34:15	kurgerbing	ca marche niquel
+2016-05-13 15:34:23	everchild	gauche aussi
+2016-05-13 15:34:30	pguillot	ça vaut une TIG aussi
+2016-05-13 15:34:32	everchild	ah ca a l'air bon
+2016-05-13 15:34:39	ftibo	c bon wai
+2016-05-13 15:34:47	qubi	Stop spam sinon -> #general :tea:
+2016-05-13 15:36:20	rambo	Ah c'est bon partout ! Merci si qqun a fait qqchose ! Qubi on signale un pb qui nous empêche de bosser totalement
+2016-05-13 15:36:54	xitope	Zaz est dussus
+2016-05-13 15:37:20	qubi	Oui fin une fois que deux membres ont été ping, nous avons vu. Donc on regarde. Pas besoin de nous annoncer que c’est le bordel dans tout l’E3, on a des retours :simple_smile:
+2016-05-13 15:37:43	kurgerbing	on?
+2016-05-13 15:38:08	qubi	Le bocal* si tu préfères.
+2016-05-13 15:38:43	zaz	good la non ?
+2016-05-13 15:38:48	everchild	oui
+2016-05-13 15:39:01	everchild	merci o/ (enfin cote gauche en tout cas)
+2016-05-13 15:39:33	rambo	Yes c'est bon aussi pour le coté droit zaz merci !
+2016-05-13 15:42:40	zaz	je suis donc bien content de d'être occupé de vous des deux côtés.
+2016-05-13 17:10:48	ifranc-r	Vous savez quand est ce qu’il y aura plus ou moins le nouveaux stock d’adaptateur
+2016-05-13 17:10:50	ifranc-r	?
+2016-05-13 17:11:06	xitope	Plus ou moins bientot
+2016-05-13 17:11:12	xitope	Genre la semaine prochaime
+2016-05-13 17:11:25	ifranc-r	Vers lundi ?
+2016-05-13 17:11:51	qubi	Bah lundi, c’est la semaine prochaine non ?
+2016-05-13 17:12:19	ifranc-r	Okay Merci
+2016-05-13 17:12:21	ifranc-r	XD
+2016-05-13 17:12:59	xitope	Plus ou moins lundi, a une semaine pres. On vous préviendra
+2016-05-13 18:26:03	lain	Lundi c'est férié non ?
+2016-05-13 18:27:18	qubi	Oui.
+2016-05-13 18:48:19	anowak	Bonjou, je voulais savoir si vous aviez recu des composants electroniques pour le groupe anowak ?
+2016-05-13 18:48:19	anowak	Le bocal est fermé, mais je sais que vous etes là :p merci bien :)
+2016-05-13 18:48:59	qubi	J’me renseigne
+2016-05-13 18:49:27	qubi	Oui on a, passes
+2016-05-13 18:49:46	anowak	Nickel ! Jarrive :)
+2016-05-14 15:52:37	--	cobble_gpotte is now known as cobble_gchibre
+2016-05-14 15:54:34	--	cobble_gchibre is now known as cobble_gpotte
+2016-05-14 16:12:44	mmartin	Bonjour, je voulais vous informez que la page "Forgot your passzord" de l'intra renvoie vers une page error 500 après la demande. Un ami a moi qui était au taf, n'arrive plus a se log sur l'intra (surement du au reset de mots de passe qu'on a du faire en debut d'année, mais qu'il n'a pas). Que me conseillez vous de lui dire ?
+2016-05-14 16:14:58	shugueno	#intra-bug
+2016-05-14 16:15:13	shugueno	Et tu ping \@andre
+2016-05-14 16:18:30	mmartin	ok
+2016-05-14 19:53:54	-->	aguellil (aguellil@irc.tinyspeck.com) has joined #bocal
+2016-05-15 03:43:54	foo	bonsoir, quelqu'un saurait comment se connecter au wifi '42' avec netctl, on a essayé toute sorte de config PEAP / MSCHAPV2 etc...
+2016-05-15 03:43:54	foo	https://www.reddit.com/r/archlinux/comments/30virj/netctl_on_university_wifi/ 
+2016-05-15 03:43:54	foo	y aurait-il une ligne qu'on aurai pu oublier ?
+2016-05-15 03:43:54	foo	Description='Wifi 42'
+2016-05-15 03:43:54	foo	Interface=wlan0
+2016-05-15 03:43:54	foo	Connection=wireless
+2016-05-15 03:43:54	foo	Security=wpa-configsection
+2016-05-15 03:43:54	foo	IP=dhcp
+2016-05-15 03:43:54	foo	ESSID=42
+2016-05-15 03:43:54	foo	WPAConfigSection=(
+2016-05-15 03:43:54	foo	        'ssid="42"'
+2016-05-15 03:43:54	foo	        'proto=RSN'
+2016-05-15 03:43:54	foo	        'key_mgmt=WPA-EAP'
+2016-05-15 03:43:54	foo	        'pairwise=CCMP'
+2016-05-15 03:43:54	foo	        'group=CCMP'
+2016-05-15 03:43:54	foo	        'eap=PEAP'
+2016-05-15 03:43:54	foo	        'identity="42_LOGIN"'
+2016-05-15 03:43:54	foo	        'password="42_PASSWORD"'
+2016-05-15 03:43:54	foo	        'phase2="auth=MSCHAPV2"'
+2016-05-15 03:43:54	foo	)
+2016-05-15 03:44:35	mtassett	j'ai ca qui traine
+2016-05-15 03:44:45	foo	super !
+2016-05-15 03:46:20	foo	tu peux m'envoyer ca ?
+2016-05-15 03:46:32	mtassett	je demmarre slack et le portable 30s
+2016-05-15 03:48:27	mtassett	met RSN WPA dans le champ proto, c' est la seule diff que j' ai
+2016-05-15 03:49:19	foo	avec un espace ?? o_O
+2016-05-15 03:49:29	mtassett	```Description='student@42'
+2016-05-15 03:49:29	mtassett	Interface=wlp58s0
+2016-05-15 03:49:29	mtassett	Connection=wireless
+2016-05-15 03:49:29	mtassett	Security=wpa-configsection
+2016-05-15 03:49:29	mtassett	IP=dhcp
+2016-05-15 03:49:29	mtassett	ESSID=42
+2016-05-15 03:49:29	mtassett	WPAConfigSection=(
+2016-05-15 03:49:29	mtassett	    'ssid="42"'
+2016-05-15 03:49:29	mtassett	    'proto=RSN WPA'
+2016-05-15 03:49:29	mtassett	    'key_mgmt=WPA-EAP'
+2016-05-15 03:49:29	mtassett	    'pairwise=CCMP'
+2016-05-15 03:49:29	mtassett	    'group=CCMP'
+2016-05-15 03:49:29	mtassett	    'eap=PEAP'
+2016-05-15 03:49:29	mtassett	    'identity="<user>"'
+2016-05-15 03:49:29	mtassett	    'password="<pass>"'
+2016-05-15 03:49:29	mtassett	    'phase2="auth=MSCHAPV2"'
+2016-05-15 03:49:29	mtassett	)```
+2016-05-15 03:49:58	mtassett	btw ton wifi c' est pas wlan0 par def sous arch
+2016-05-15 03:50:04	foo	ok, on va tester ca
+2016-05-15 03:50:25	foo	ouaip, etait pour etre compris ^^
+2016-05-15 03:50:32	foo	c'etait*
+2016-05-15 10:36:30	tolsadus	@foo essaye avec wpa-supplicant qqch dans le genre
+2016-05-15 15:03:08	jichen-m	le “grademe" du Examshell ne marche pas, je suis en train d’attendre pour ma note depuis 5min XD
+2016-05-15 15:09:12	xitope	@zaz:
+2016-05-15 15:09:37	qubi	ou @noich (je sais plus s’il y arrive ^^)
+2016-05-15 15:16:43	zaz	Jsuis dans la pampa dsl
+2016-05-15 15:36:02	zaz	@jichen-m: réessaie stp
+2016-05-15 15:36:17	jichen-m	okey
+2016-05-15 15:36:22	zaz	Et dis moi si cest good. Si non, alors faut que t'attendre que je sois rentre
+2016-05-15 15:40:14	zaz	Alors ?
+2016-05-15 15:40:25	jichen-m	@zaz: maintenant il me renvoi un message d’erreur —> "ERROR: There was a problem while submitting your grading job to the Deepthought cluster. You should retry in a few moments, but if this error persists, please contact a staff member!"
+2016-05-15 15:41:12	zaz	Meheheh
+2016-05-15 15:41:13	zaz	Ok
+2016-05-15 15:41:17	zaz	Ben patience.
+2016-05-15 15:41:36	jichen-m	@zaz: et quand je relance le examshell j’ai les dossier que j’avais fait avant :stuck_out_tongue_closed_eyes:
+2016-05-15 15:43:13	zaz	Gné ?
+2016-05-15 15:47:43	jichen-m	nop >P
+2016-05-15 15:49:09	zaz	Non mais j'ai pas compris
+2016-05-15 16:32:01	zaz	@jichen-m: chez moi ca marche la ... t'es sur de ta connerie ? :smile:
+2016-05-15 16:32:17	jichen-m	lol
+2016-05-15 16:32:55	jichen-m	@zaz: je retest on va voir XD
+2016-05-15 16:35:00	jichen-m	@zaz: ah ça marche maintenant :joy: merci de tout facon :hugging_face:
+2016-05-15 16:36:42	zaz	ben jai rien fait mais ok du coup
+2016-05-15 16:37:03	adam	ta presence lui manquait zaz
+2016-05-16 09:02:30	bender_rodriguez	Bonjour, ya quelqu'un au bocal?
+2016-05-16 09:03:49	rgaiffe	Oui
+2016-05-16 09:05:01	bender_rodriguez	j'arrive
+2016-05-16 12:21:32	enerdhil	Internet est down?!
+2016-05-16 12:25:02	gokusbour	Connexion nfs interrompue
+2016-05-16 12:26:34	montasar	Et gros bug de pop up en e3 aussi
+2016-05-16 12:26:53	tguillot	Bonjour, Xitope est dessus.
+2016-05-16 13:04:10	xitope	C’est good
+2016-05-16 13:07:56	xitope	:electric_plug:
+2016-05-16 23:01:35	--	irc: disconnected from server
+2016-05-19 01:09:18	-->	cfernand (cfernand@irc.tinyspeck.com) has joined #bocal
+2016-05-19 01:09:18	--	Topic for #bocal is "Faites remontrer vos problèmes ici. Tout troll sera banni. || https://meta.intra.42.fr/issues"
+2016-05-19 01:09:18	--	Channel #bocal: 1425 nicks (0 ops, 0 voices, 1425 normals)
+2016-05-19 01:09:21	--	Channel created on Thu, 19 May 2016 01:09:17
+2016-05-19 01:48:19	xitope	Yep
+2016-05-19 01:48:30	xitope	42 minutes dans tout les cas
+2016-05-19 02:04:57	--	irc: disconnected from server
+2016-05-21 12:11:47	-->	cfernand (cfernand@irc.tinyspeck.com) has joined #bocal
+2016-05-21 12:11:47	--	Topic for #bocal is "Faites remontrer vos problèmes ici. Tout troll sera banni. || https://meta.intra.42.fr/issues"
+2016-05-21 12:11:47	--	Channel #bocal: 1431 nicks (0 ops, 0 voices, 1431 normals)
+2016-05-21 12:11:51	--	Channel created on Sat, 21 May 2016 12:11:49

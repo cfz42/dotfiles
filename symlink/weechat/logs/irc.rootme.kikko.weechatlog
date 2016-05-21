@@ -1,0 +1,18 @@
+2016-05-19 01:19:26	skunkz	yop
+2016-05-19 01:19:30	kikko	yop
+2016-05-19 01:20:03	kikko	ya des différences d'adresses dans gdb et hors gdb
+2016-05-19 01:20:29	skunkz	j'en ai jamais eu jusqu'a mtn, simple hasard?
+2016-05-19 01:20:35	kikko	non
+2016-05-19 01:20:42	kikko	c'est classique
+2016-05-19 01:21:16	kikko	tu peux essayer de voir les différences entre les variables d'environnement
+2016-05-19 01:21:38	kikko	en general dans gdb, tu as 2 env en +
+2016-05-19 01:21:43	kikko	LINES et COLUMNS
+2016-05-19 01:22:01	skunkz	\o/
+2016-05-19 01:22:10	kikko	que tu peux enlever en faisant unset env LINES
+2016-05-19 01:22:21	skunkz	mais pourquoi jusqu'a maintenant je les avais pas?
+2016-05-19 01:22:33	kikko	bonne question
+2016-05-19 01:22:39	kikko	j'ai pas la réponse ^^
+2016-05-19 01:23:05	skunkz	peut etre que le gdb des challenges precedents est deja configuré pour ne pas les avoir
+2016-05-19 01:26:07	kikko	sinon dans gdb fait: show env
+2016-05-19 01:26:27	skunkz	ouais je vais verifier apres je finis d'abord celui la haha
+2016-05-19 02:04:57	--	irc: disconnected from server

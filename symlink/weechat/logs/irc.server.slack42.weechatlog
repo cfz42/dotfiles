@@ -1,0 +1,96 @@
+2016-05-12 07:55:44	--	irc: connecting to server 42born2code.irc.slack.com/6667 (SSL)...
+2016-05-12 07:55:45	--	gnutls: connected using 512-bit Diffie-Hellman shared secret exchange
+2016-05-12 07:55:45	--	gnutls: receiving 2 certificates
+2016-05-12 07:55:45	--	 - certificate[1] info:
+2016-05-12 07:55:45	--	   - subject `C=US,ST=California,L=San Francisco,O=Tiny Speck,CN=*.irc.slack.com', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', RSA key 2048 bits, signed using RSA-SHA256, activated `2015-11-25 00:00:00 UTC', expires `2017-12-02 23:59:59 UTC', SHA-1 fingerprint `ed4dcb04c89dc80d43e65437e7c4632dcf50ac86'
+2016-05-12 07:55:45	--	 - certificate[2] info:
+2016-05-12 07:55:45	--	   - subject `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust Global CA', RSA key 2048 bits, signed using RSA-SHA256, activated `2013-11-05 21:36:50 UTC', expires `2022-05-20 21:36:50 UTC', SHA-1 fingerprint `5aeaee3f7f2a9449cebafeec68fdd184f20124a7'
+2016-05-12 07:55:45	--	gnutls: peer's certificate is trusted
+2016-05-12 07:55:45	--	irc: connected to 42born2code.irc.slack.com/6667 (52.71.229.167)
+2016-05-12 07:55:45	--	CTCP requested by slackbot: VERSION
+2016-05-12 07:55:45	--	CTCP reply to slackbot: VERSION WeeChat 1.5 (May  5 2016)
+2016-05-12 07:55:45	--	IRC-SLACK gateway
+2016-05-12 07:55:47	--	Welcome to Slack IRC Gateway server cfernand!~cfernand@10.0.104.249
+2016-05-12 07:55:47	--	MAP SILENCE=15 WHOX WALLCHOPS WALLVOICES USERIP CPRIVMSG CNOTICE MODES=6 MAXCHANNELS=100 SAFELIST :are supported by this server
+2016-05-12 07:55:47	--	NICKLEN=32 TOPICLEN=160 AWAYLEN=160 CHANTYPES=# PREFIX=(ov)@+ CHANMODES=b,k,l,rimnpst CASEMAPPING=rfc1459 :are supported by this server
+2016-05-12 07:55:47	--	there are 1805 users
+2016-05-12 07:55:47	--	Message of the day
+2016-05-12 07:55:47	--	WELCOME TO SLACK...
+2016-05-12 07:55:47	--	End of MOTD command
+2016-05-12 07:56:11	--	Mode #retard [+nt]
+2016-05-12 07:56:11	--	Channel #retard created on Thu, 12 May 2016 07:56:17
+2016-05-12 07:56:13	--	Mode #js [+nt]
+2016-05-12 07:56:13	--	Channel #js created on Thu, 12 May 2016 07:56:19
+2016-05-12 07:59:37	--	irc: disconnected from server
+2016-05-12 07:59:51	--	irc: connecting to server 42born2code.irc.slack.com/6667 (SSL)...
+2016-05-12 07:59:51	--	gnutls: connected using 512-bit Diffie-Hellman shared secret exchange
+2016-05-12 07:59:51	--	gnutls: receiving 2 certificates
+2016-05-12 07:59:51	--	 - certificate[1] info:
+2016-05-12 07:59:51	--	   - subject `C=US,ST=California,L=San Francisco,O=Tiny Speck,CN=*.irc.slack.com', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', RSA key 2048 bits, signed using RSA-SHA256, activated `2015-11-25 00:00:00 UTC', expires `2017-12-02 23:59:59 UTC', SHA-1 fingerprint `ed4dcb04c89dc80d43e65437e7c4632dcf50ac86'
+2016-05-12 07:59:51	--	 - certificate[2] info:
+2016-05-12 07:59:51	--	   - subject `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust Global CA', RSA key 2048 bits, signed using RSA-SHA256, activated `2013-11-05 21:36:50 UTC', expires `2022-05-20 21:36:50 UTC', SHA-1 fingerprint `5aeaee3f7f2a9449cebafeec68fdd184f20124a7'
+2016-05-12 07:59:51	--	gnutls: peer's certificate is trusted
+2016-05-12 07:59:51	--	irc: connected to 42born2code.irc.slack.com/6667 (52.201.37.114)
+2016-05-12 07:59:51	--	CTCP requested by slackbot: VERSION
+2016-05-12 07:59:51	--	CTCP reply to slackbot: VERSION WeeChat 1.5 (May  5 2016)
+2016-05-12 07:59:52	--	IRC-SLACK gateway
+2016-05-12 07:59:53	--	Welcome to Slack IRC Gateway server cfernand!~cfernand@10.0.49.79
+2016-05-12 07:59:53	--	MAP SILENCE=15 WHOX WALLCHOPS WALLVOICES USERIP CPRIVMSG CNOTICE MODES=6 MAXCHANNELS=100 SAFELIST :are supported by this server
+2016-05-12 07:59:53	--	NICKLEN=32 TOPICLEN=160 AWAYLEN=160 CHANTYPES=# PREFIX=(ov)@+ CHANMODES=b,k,l,rimnpst CASEMAPPING=rfc1459 :are supported by this server
+2016-05-12 07:59:53	--	there are 1805 users
+2016-05-12 07:59:53	--	Message of the day
+2016-05-12 07:59:53	--	WELCOME TO SLACK...
+2016-05-12 07:59:53	--	End of MOTD command
+2016-05-12 08:00:11	--	Mode #esport42_cs_go [+nt]
+2016-05-12 08:00:12	--	Channel #esport42_cs_go created on Thu, 12 May 2016 08:00:17
+2016-05-12 08:00:19	--	Mode #retard [+nt]
+2016-05-12 08:00:20	--	Channel #retard created on Thu, 12 May 2016 08:00:25
+2016-05-13 11:30:06	--	[espiroux] (espiroux@42born2code.slack.com): Emeric SPIROUX
+2016-05-13 11:30:06	--	[espiroux] 
+2016-05-13 11:30:06	--	[espiroux] End of /WHOIS list
+2016-05-13 11:30:20	--	[cfernand] (cfernand@42born2code.slack.com): 
+2016-05-13 11:30:20	--	[cfernand] 
+2016-05-13 11:30:20	--	[cfernand] End of /WHOIS list
+2016-05-13 13:33:05	--	[bodo] (bodo@42born2code.slack.com): 
+2016-05-13 13:33:05	--	[bodo] 
+2016-05-13 13:33:05	--	[bodo] End of /WHOIS list
+2016-05-16 23:01:35	--	irc: disconnected from server
+2016-05-19 01:09:15	--	irc: connecting to server 42born2code.irc.slack.com/6667 (SSL)...
+2016-05-19 01:09:15	--	gnutls: connected using 512-bit Diffie-Hellman shared secret exchange
+2016-05-19 01:09:15	--	gnutls: receiving 2 certificates
+2016-05-19 01:09:15	--	 - certificate[1] info:
+2016-05-19 01:09:15	--	   - subject `C=US,ST=California,L=San Francisco,O=Tiny Speck,CN=*.irc.slack.com', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', RSA key 2048 bits, signed using RSA-SHA256, activated `2015-11-25 00:00:00 UTC', expires `2017-12-02 23:59:59 UTC', SHA-1 fingerprint `ed4dcb04c89dc80d43e65437e7c4632dcf50ac86'
+2016-05-19 01:09:15	--	 - certificate[2] info:
+2016-05-19 01:09:15	--	   - subject `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust Global CA', RSA key 2048 bits, signed using RSA-SHA256, activated `2013-11-05 21:36:50 UTC', expires `2022-05-20 21:36:50 UTC', SHA-1 fingerprint `5aeaee3f7f2a9449cebafeec68fdd184f20124a7'
+2016-05-19 01:09:15	--	gnutls: peer's certificate is trusted
+2016-05-19 01:09:15	--	irc: connected to 42born2code.irc.slack.com/6667 (52.71.229.167)
+2016-05-19 01:09:15	--	CTCP requested by slackbot: VERSION
+2016-05-19 01:09:15	--	CTCP reply to slackbot: VERSION WeeChat 1.5 (May  5 2016)
+2016-05-19 01:09:15	--	IRC-SLACK gateway
+2016-05-19 01:09:17	--	Welcome to Slack IRC Gateway server cfernand!~cfernand@10.0.104.249
+2016-05-19 01:09:17	--	MAP SILENCE=15 WHOX WALLCHOPS WALLVOICES USERIP CPRIVMSG CNOTICE MODES=6 MAXCHANNELS=100 SAFELIST :are supported by this server
+2016-05-19 01:09:17	--	NICKLEN=32 TOPICLEN=160 AWAYLEN=160 CHANTYPES=# PREFIX=(ov)@+ CHANMODES=b,k,l,rimnpst CASEMAPPING=rfc1459 :are supported by this server
+2016-05-19 01:09:17	--	there are 1811 users
+2016-05-19 01:09:17	--	Message of the day
+2016-05-19 01:09:17	--	WELCOME TO SLACK...
+2016-05-19 01:09:17	--	End of MOTD command
+2016-05-19 02:04:57	--	irc: disconnected from server
+2016-05-21 12:11:44	--	irc: connecting to server 42born2code.irc.slack.com/6667 (SSL)...
+2016-05-21 12:11:44	--	gnutls: connected using 512-bit Diffie-Hellman shared secret exchange
+2016-05-21 12:11:44	--	gnutls: receiving 2 certificates
+2016-05-21 12:11:44	--	 - certificate[1] info:
+2016-05-21 12:11:44	--	   - subject `C=US,ST=California,L=San Francisco,O=Tiny Speck,CN=*.irc.slack.com', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', RSA key 2048 bits, signed using RSA-SHA256, activated `2015-11-25 00:00:00 UTC', expires `2017-12-02 23:59:59 UTC', SHA-1 fingerprint `ed4dcb04c89dc80d43e65437e7c4632dcf50ac86'
+2016-05-21 12:11:44	--	 - certificate[2] info:
+2016-05-21 12:11:44	--	   - subject `C=US,O=GeoTrust Inc.,CN=GeoTrust SSL CA - G3', issuer `C=US,O=GeoTrust Inc.,CN=GeoTrust Global CA', RSA key 2048 bits, signed using RSA-SHA256, activated `2013-11-05 21:36:50 UTC', expires `2022-05-20 21:36:50 UTC', SHA-1 fingerprint `5aeaee3f7f2a9449cebafeec68fdd184f20124a7'
+2016-05-21 12:11:44	--	gnutls: peer's certificate is trusted
+2016-05-21 12:11:44	--	irc: connected to 42born2code.irc.slack.com/6667 (52.71.229.167)
+2016-05-21 12:11:45	--	CTCP requested by slackbot: VERSION
+2016-05-21 12:11:45	--	CTCP reply to slackbot: VERSION WeeChat 1.5 (May  5 2016)
+2016-05-21 12:11:45	--	IRC-SLACK gateway
+2016-05-21 12:11:46	--	Welcome to Slack IRC Gateway server cfernand!~cfernand@10.0.104.249
+2016-05-21 12:11:46	--	MAP SILENCE=15 WHOX WALLCHOPS WALLVOICES USERIP CPRIVMSG CNOTICE MODES=6 MAXCHANNELS=100 SAFELIST :are supported by this server
+2016-05-21 12:11:46	--	NICKLEN=32 TOPICLEN=160 AWAYLEN=160 CHANTYPES=# PREFIX=(ov)@+ CHANMODES=b,k,l,rimnpst CASEMAPPING=rfc1459 :are supported by this server
+2016-05-21 12:11:46	--	there are 1814 users
+2016-05-21 12:11:46	--	Message of the day
+2016-05-21 12:11:46	--	WELCOME TO SLACK...
+2016-05-21 12:11:46	--	End of MOTD command
