@@ -5,7 +5,7 @@
 	ui = true
 [core]
 	editor = vim
-	excludesfile = /home/clement/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	trustctime = false
 	autocrlf = input
 [diff]

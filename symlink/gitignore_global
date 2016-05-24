@@ -23,9 +23,8 @@
 
 # OS generated files
 ####################
-.DS_Store
-.DS_Store?
 ._*
+.DS_Store
 .Trashes
 .Spotlight-V100
 Thumbs.db
@@ -33,7 +32,6 @@ Thumbs.db
 
 # node_modules
 node_modules/
-*/node_modules/
 
 # Jetbrains 
 .idea/

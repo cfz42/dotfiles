@@ -18,7 +18,7 @@ LEFT_PROMPT='%n@%m:%~'
 COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
 COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
 NEWLINE=$'\n'
-
+setopt AUTOCD
 # Adds necessary padding to right align [jobs] | date (last exit status)
 right_align() {
 	local PADDING=''

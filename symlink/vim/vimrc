@@ -30,7 +30,7 @@ colorscheme hybrid
 
 highlight VertSplit   ctermbg=bg
 highlight Folded      term=none cterm=none
-highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
+" highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
 
 " Open man pages in vim and bind K to split them
 runtime ftplugin/man.vim
