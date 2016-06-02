@@ -18,15 +18,16 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Vim leader/localleader
-let mapleader=","					" Main shortcuts
-let localleader=' '					" Localleader to avoid conflicts
+let mapleader="\<space>"					" Main shortcuts
+"let localleader=' '					" Localleader to avoid conflicts
 
 " Enable syntax highlighting
 syntax enable
 
 set background=dark
-"colorscheme solarized
-colorscheme hybrid
+"let g:solarized_termcolors=256
+colorscheme solarized
+"colorscheme hybrid
 
 highlight VertSplit   ctermbg=bg
 highlight Folded      term=none cterm=none
@@ -37,10 +38,10 @@ runtime ftplugin/man.vim
 nnoremap K :Man <cword><cr><c-w>L
 
 " C syntastic config
-let g:syntastic_c_compiler = "clang"
-let g:syntastic_c_compiler_options = "-Wall -Wextra"
-let g:syntastic_c_include_dirs = ['libft/inc']
-let g:syntastic_c_check_header = "1"
+let g:syntastic_c_compiler = 'clang'
+let g:syntastic_c_compiler_options = '-Wall -Wextra'
+let g:syntastic_c_include_dirs = ['libft/inc', 'inc', 'includes']
+let g:syntastic_c_check_header = '1'
 "let g:syntastic_cpp_check_header = 1
 "let g:syntastic_html_tidy_exec = 'tidy5'
 
@@ -65,7 +66,7 @@ set hidden							" Allow to hide buffer instead of closing it
 set tabstop=4						" <tab> is 4 spaces large (visually)
 set softtabstop=4					" <tab> in i mode is 4 spaces large	
 set shiftwidth=4					" Indent with 4 spaces
-set smarttab						" Intelligent <tab> insertion
+"set smarttab						" Intelligent <tab> insertion
 set autoindent						" Keep same indent on newline
 set cindent							" Use C-style indentation
 set hlsearch						" Highlight search results
@@ -88,9 +89,11 @@ autocmd BufNewFile,BufReadPost *.h setlocal filetype=c
 autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
-autocmd FileType h,c,cpp setlocal colorcolumn=80
-
+autocmd FileType c setlocal colorcolumn=80
 autocmd FileType help,man wincmd L					" Display man/help pages in a split
+
+" Enter command mode
+nnoremap <leader> :
 
 " Hit <esc> quicker
 inoremap jk <esc>
@@ -98,7 +101,6 @@ snoremap jk <esc>
 
 " Mapping to disable highlighting
 nnoremap <leader>/ :nohlsearch<cr>
-inoremap <leader>/ :nohlsearch<cr>
 
 " Navigate through wrapped lines
 nnoremap j gj
@@ -106,16 +108,25 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" Browse buffers
+nnoremap <c-up> :bnext<cr>
+nnoremap <c-right> :bnext<cr>
+nnoremap <c-down> :bprev<cr>
+nnoremap <c-left> :bprev<cr>
+
+" Close buffer
+nnoremap <leader>d :bdel<cr>
+
 " Navigate through tabs
 nnoremap <c-l> :tabnext<cr>
 nnoremap <c-h> :tabprevious<cr>
 nnoremap <c-n> :tabedit 
 
 "Navigate through splits
-nnoremap <Tab>l <c-w>l
-nnoremap <Tab>h <c-w>h
-nnoremap <Tab>j <c-w>j
-nnoremap <Tab>k <c-w>k
+nnoremap <leader>l <c-w>l
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
 
 " Quick access to NERDTree
 nnoremap <leader>b :NERDTreeToggle<cr>
