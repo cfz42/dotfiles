@@ -3,47 +3,52 @@ export LANG='en_US.UTF-8'
 # Prompt configuration
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
-
-# Git prompt functions (used in precmd)
-if [[ -f ~/.git-prompt.sh ]] then
-	source ~/.git-prompt.sh
-fi
-
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWCOLORHINTS=true
-
-LEFT_PROMPT='%n@%m:%~'
-COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
-NEWLINE=$'\n'
 setopt AUTOCD
-# Adds necessary padding to right align [jobs] | date (last exit status)
-right_align() {
-	local PADDING=''
-	local PADDING_CHAR=' '
 
-	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
-	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
-	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
-	do PADDING=${PADDING}${PADDING_CHAR};
-	done
-	echo $PADDING
-}
-
-precmd() {
-	local LAST_EXIT_STATUS=$?
-	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
-		RIGHT_PROMPT='[%j] | %*'
-	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
-		RIGHT_PROMPT='[%j] | %* %?⤶  '
-	else
-		RIGHT_PROMPT='[%j] | %* %?⤶ '
+# Disable git prompt on cygwin
+if [[ -z "$CYGWIN" ]] then
+	# Git prompt functions (used in precmd)
+	if [[ -f ~/.git-prompt.sh ]] then
+		source ~/.git-prompt.sh
 	fi
-	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
-}
+
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWCOLORHINTS=true
+
+	LEFT_PROMPT='%n@%m:%~'
+	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+	COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+	NEWLINE=$'\n'
+	# Adds necessary padding to right align [jobs] | date (last exit status)
+	right_align() {
+		local PADDING=''
+		local PADDING_CHAR=' '
+
+		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
+		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
+		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
+		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
+		do PADDING=${PADDING}${PADDING_CHAR};
+		done
+		echo $PADDING
+	}
+
+	precmd() {
+		local LAST_EXIT_STATUS=$?
+		if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
+			RIGHT_PROMPT='[%j] | %*'
+		elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
+			RIGHT_PROMPT='[%j] | %* %?⤶  '
+		else
+			RIGHT_PROMPT='[%j] | %* %?⤶ '
+		fi
+		__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
+	}
+else
+	PS1='%n@%m:%~'$'\n%# '
+fi
 
 # History settings
 setopt HIST_IGNORE_ALL_DUPS
