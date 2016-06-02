@@ -26,8 +26,8 @@ syntax enable
 
 set background=dark
 "let g:solarized_termcolors=256
-colorscheme solarized
-"colorscheme hybrid
+"colorscheme solarized
+colorscheme hybrid
 
 highlight VertSplit   ctermbg=bg
 highlight Folded      term=none cterm=none
@@ -63,7 +63,6 @@ set pastetoggle=<F2>				" Quickly paste huge buffers
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
-set tabstop=4						" <tab> is 4 spaces large (visually)
 set softtabstop=4					" <tab> in i mode is 4 spaces large	
 set shiftwidth=4					" Indent with 4 spaces
 "set smarttab						" Intelligent <tab> insertion
