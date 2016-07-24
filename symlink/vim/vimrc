@@ -63,7 +63,8 @@ set pastetoggle=<F2>				" Quickly paste huge buffers
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
-set softtabstop=4					" <tab> in i mode is 4 spaces large	
+set tabstop=4						" <tab> is 4 spaces large
+set softtabstop=4					" <tab> in i mode is 4 spaces large (mixed spaces and tab)
 set shiftwidth=4					" Indent with 4 spaces
 "set smarttab						" Intelligent <tab> insertion
 set autoindent						" Keep same indent on newline

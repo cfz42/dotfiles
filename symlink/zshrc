@@ -110,8 +110,8 @@ export GROFF_NO_SGR=1
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
 	alias ls='ls --color=auto'
-	alias grep='grep --color=auto'
 fi
+alias grep='grep --color=auto'
 
 # Git aliases
 alias gst='git status'
