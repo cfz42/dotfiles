@@ -131,6 +131,7 @@ alias gdt='git difftool'
 alias gmt='git mergetool'
 alias gb='git branch'
 alias gcp='git cherry-pick'
+alias gcm='git commit'
 
 #alias tmux='tmux -2' # Force tmux to use 256 colors
 
