@@ -59,7 +59,7 @@ set foldcolumn=4
 set foldmethod=syntax
 set foldlevelstart=5
 
-set pastetoggle=<F2>				" Quickly paste huge buffers
+set pastetoggle=<F2>					" Quickly paste huge buffers
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
@@ -83,17 +83,19 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 set autoindent						" Keep same indent on newline
-set cindent							" Use C-style indentation
-set number							" Display line number 
-set rnu								" Display relative num (except current line in vim >= 7.4)
+set cindent						" Use C-style indentation
+set hlsearch					" Highlight search results
+set incsearch					" Search as soon as we type
+set number						" Display line number 
+set rnu							" Display relative num (except current line in vim >= 7.4)
 set laststatus=2					" Always show status line
 set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
-set showcmd							" Show commands as you type them
+set showcmd						" Show commands as you type them
 set showmode						" Always show the current mode
 set wildmenu						" Show more results on <tab>
-set wildmode=list:longest,full		" Show them all
+set wildmode=list:longest,full				" Show them all
 set splitbelow						" Force new windows to open below..
 set splitright						" .. on the right
 
@@ -103,9 +105,9 @@ autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
 autocmd FileType c setlocal colorcolumn=80
-autocmd FileType help,man wincmd L					" Display man/help pages in a split
+autocmd FileType help,man wincmd L			" Display man/help pages in a split
 
-" Enter command mode
+" Enter command mode (leader + <cr>)
 nnoremap <leader> :
 
 " Hit <esc> quicker

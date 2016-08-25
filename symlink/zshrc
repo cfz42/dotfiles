@@ -7,47 +7,47 @@ setopt AUTOCD
 
 # Disable git prompt on cygwin
 if [[ -z "$CYGWIN" ]] then
-	# Git prompt functions (used in precmd)
-	if [[ -f ~/.git-prompt.sh ]] then
-		source ~/.git-prompt.sh
+    # Git prompt functions (used in precmd)
+    if [[ -f ~/.git-prompt.sh ]] then
+	source ~/.git-prompt.sh
+    fi
+
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_SHOWUNTRACKEDFILES=true
+    GIT_PS1_SHOWCOLORHINTS=true
+
+    LEFT_PROMPT='%n@%m:%~'
+    COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+    COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+    NEWLINE=$'\n'
+    # Adds necessary padding to right align [jobs] | date (last exit status)
+    right_align() {
+	local PADDING=''
+	local PADDING_CHAR=' '
+
+	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
+	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
+	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
+	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
+	do PADDING=${PADDING}${PADDING_CHAR};
+	done
+	echo $PADDING
+    }
+
+    precmd() {
+	local LAST_EXIT_STATUS=$?
+	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
+	    RIGHT_PROMPT='[%j] | %*'
+	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
+	    RIGHT_PROMPT='[%j] | %* %?⤶  '
+	else
+	    RIGHT_PROMPT='[%j] | %* %?⤶ '
 	fi
-
-	GIT_PS1_SHOWDIRTYSTATE=true
-	GIT_PS1_SHOWUPSTREAM="auto"
-	GIT_PS1_SHOWUNTRACKEDFILES=true
-	GIT_PS1_SHOWCOLORHINTS=true
-
-	LEFT_PROMPT='%n@%m:%~'
-	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-	COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
-	NEWLINE=$'\n'
-	# Adds necessary padding to right align [jobs] | date (last exit status)
-	right_align() {
-		local PADDING=''
-		local PADDING_CHAR=' '
-
-		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
-		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
-		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
-		do PADDING=${PADDING}${PADDING_CHAR};
-		done
-		echo $PADDING
-	}
-
-	precmd() {
-		local LAST_EXIT_STATUS=$?
-		if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
-			RIGHT_PROMPT='[%j] | %*'
-		elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
-			RIGHT_PROMPT='[%j] | %* %?⤶  '
-		else
-			RIGHT_PROMPT='[%j] | %* %?⤶ '
-		fi
-		__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
-	}
+	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
+    }
 else
-	PS1='%n@%m:%~'$'\n%# '
+    PS1='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~%{$reset_color%}'$'\n%# '
 fi
 
 # History settings
@@ -55,7 +55,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 if [[ -x /usr/bin/stty ]]; then
-	/usr/bin/stty -ixon		# Disable <C-s> <C-q>
+    /usr/bin/stty -ixon		# Disable <C-s> <C-q>
 fi
 unsetopt FLOW_CONTROL	# Disable <C-s> <C-q>
 setopt noflowcontrol	# Disable <C-s> <C-q>
@@ -69,7 +69,7 @@ HISTFILE=~/.zsh_history
 # Use modern completion system
 autoload -U compinit && compinit
 if [[ -f ~/.git-completion.zsh ]] then
-	zstyle -T ':completion:*:*:git:*' script ~/.git-completion.zsh
+    zstyle -T ':completion:*:*:git:*' script ~/.git-completion.zsh
 fi
 
 # Completion configuration
@@ -77,7 +77,7 @@ fi
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' group-name '' # Group suggestions by tags
 if [[ -x /usr/bin/dircolors ]]; then
-	eval "$(dircolors -b)" # Load ls colors
+    eval "$(dircolors -b)" # Load ls colors
 fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
@@ -95,23 +95,23 @@ export CLICOLOR=1 # Enable command line colors on Mac / BSD (eg: ls output)
 
 # Colored man pages with less
 man() {
-	env LESS_TERMCAP_mb=$'\E[01;31m' \
-		LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-		LESS_TERMCAP_me=$'\E[0m' \
-		LESS_TERMCAP_se=$'\E[0m' \
-		LESS_TERMCAP_so=$'\E[38;5;246m' \
-		LESS_TERMCAP_ue=$'\E[0m' \
-		LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-		man "$@"
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+	LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+	LESS_TERMCAP_me=$'\E[0m' \
+	LESS_TERMCAP_se=$'\E[0m' \
+	LESS_TERMCAP_so=$'\E[38;5;246m' \
+	LESS_TERMCAP_ue=$'\E[0m' \
+	LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+	man "$@"
 }
 export GROFF_NO_SGR=1
 
 
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
-	alias ls='ls --color=auto'
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
 fi
-alias grep='grep --color=auto'
 
 # Git aliases
 alias gst='git status'
@@ -141,8 +141,8 @@ alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 if [[ -x $HOME/.brew/bin/brew ]]; then
-	export PATH="$HOME/.brew/bin:$PATH"
-	export HOMEBREW_CACHE="/tmp/homebrew_cache"
+    export PATH="$HOME/.brew/bin:$PATH"
+    export HOMEBREW_CACHE="/tmp/homebrew_cache"
 fi
 
 # Key bindings
@@ -151,7 +151,7 @@ bindkey "\e[4~" end-of-line
 bindkey "\e[3~" delete-char
 
 if [[ "$COLORTERM" == "xfce4-terminal" && -z "$TMUX" ]]; then
-	export TERM=xterm-256color
+    export TERM=xterm-256color
 fi
 
 alias idc='cat ~/.idontcare'

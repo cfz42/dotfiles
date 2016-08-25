@@ -8,6 +8,7 @@
 	excludesfile = ~/.gitignore_global
 	trustctime = false
 	autocrlf = input
+	preloadindex = true
 [diff]
 	tool = vimdiff
 [merge]
