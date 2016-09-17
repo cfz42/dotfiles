@@ -11,9 +11,16 @@ end
 " If problems with regexes in vim-javascript, uncomment below
 " set regexpengine=1
 
-" Ultisnip keymap
+" Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" UltiSnips keymap
+let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 " Vim leader/localleader
 let mapleader = "\<space>"					" Main shortcuts
@@ -55,11 +62,10 @@ set diffopt+=iwhite
 
 set mouse+=a
 
-set foldcolumn=4
+"set foldcolumn=4
 set foldmethod=syntax
 set foldlevelstart=5
 
-set pastetoggle=<F2>					" Quickly paste huge buffers
 set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
@@ -162,10 +168,10 @@ nnoremap <leader>q :q<cr>
 " Add ; quickly
 nnoremap <leader>; A;<esc>
 
-inoremap <C-a> <esc>I
-inoremap <C-e> <esc>A
-cnoremap <C-a> <home>
-cnoremap <C-e> <end>
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 
 nnoremap z<space> zA
 

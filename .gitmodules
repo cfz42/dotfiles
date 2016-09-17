@@ -31,3 +31,9 @@
 [submodule "symlink/vim/bundle/auto-pairs"]
 	path = symlink/vim/bundle/auto-pairs
 	url = https:////github.com/jiangmiao/auto-pairs.git
+[submodule "symlink/vim/bundle/YouCompleteMe"]
+	path = symlink/vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "symlink/vim/bundle/supertab"]
+	path = symlink/vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
