@@ -48,14 +48,21 @@ let g:syntastic_c_compiler = 'clang'
 let g:syntastic_c_compiler_options = '-Wall -Wextra'
 let g:syntastic_c_include_dirs = ['libft/inc', 'inc', 'includes']
 let g:syntastic_c_check_header = '1'
-"let g:syntastic_cpp_check_header = 1
 "let g:syntastic_html_tidy_exec = 'tidy5'
+
+" Cpp syntastic config
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-Wall -Wextra -std=c++11'
+let g:syntastic_cpp_include_dirs = ['libft/inc', 'inc', 'includes']
 
 " Javascript syntastic config
 let g:syntastic_javascript_checkers = ['eslint']
 
 " Asm syntastic config
 let g:syntastic_asm_compiler = "nasm"
+
+" Speed up redraw
+set lazyredraw
 
 " ignore whitespaces in vimdiff
 set diffopt+=iwhite
@@ -89,19 +96,18 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 set autoindent						" Keep same indent on newline
-set cindent						" Use C-style indentation
-set hlsearch					" Highlight search results
-set incsearch					" Search as soon as we type
-set number						" Display line number 
-set rnu							" Display relative num (except current line in vim >= 7.4)
+set cindent							" Use C-style indentation
+set hlsearch						" Highlight search results
+set incsearch						" Search as soon as we type
+set number							" Display line number 
 set laststatus=2					" Always show status line
 set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
-set showcmd						" Show commands as you type them
+set showcmd							" Show commands as you type them
 set showmode						" Always show the current mode
 set wildmenu						" Show more results on <tab>
-set wildmode=list:longest,full				" Show them all
+set wildmode=list:longest,full		" Show them all
 set splitbelow						" Force new windows to open below..
 set splitright						" .. on the right
 
@@ -111,7 +117,7 @@ autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
 autocmd FileType c setlocal colorcolumn=80
-autocmd FileType help,man wincmd L			" Display man/help pages in a split
+autocmd FileType help,man wincmd L	" Display man/help pages in a split
 
 " Enter command mode (leader + <cr>)
 nnoremap <leader> :
