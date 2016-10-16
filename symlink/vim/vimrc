@@ -12,6 +12,7 @@ end
 " set regexpengine=1
 
 " Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_auto_trigger = 0
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -77,7 +78,7 @@ set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
 
-set list
+"set list
 "set listchars=tab:▸‑,eol:¬
 set listchars=tab:▸\ ,eol:¬
 set showbreak=↪
@@ -92,14 +93,19 @@ set smartcase
 set incsearch						" Search as soon as we type
 set hlsearch
 
+" Go to next result and center buffer
 nnoremap n nzzzv
+nnoremap <leader>n nzzzv:nohlsearch<cr>
+" Go to prev result and center buffer
 nnoremap N Nzzzv
+nnoremap <leader>N Nzzzv:nohlsearch<cr>
 
 set autoindent						" Keep same indent on newline
-set cindent							" Use C-style indentation
-set hlsearch						" Highlight search results
-set incsearch						" Search as soon as we type
-set number							" Display line number 
+set cindent						" Use C-style indentation
+set hlsearch					" Highlight search results
+set incsearch					" Search as soon as we type
+set number						" Display line number 
+"set rnu							" Display relative num (except current line in vim >= 7.4)
 set laststatus=2					" Always show status line
 set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
 set cursorline						" Display current line
@@ -117,7 +123,8 @@ autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
 autocmd FileType c setlocal colorcolumn=80
-autocmd FileType help,man wincmd L	" Display man/help pages in a split
+autocmd FileType cpp setlocal colorcolumn=100
+autocmd FileType help,man wincmd L			" Display man/help pages in a split
 
 " Enter command mode (leader + <cr>)
 nnoremap <leader> :
@@ -181,4 +188,5 @@ cnoremap <c-e> <end>
 
 nnoremap z<space> zA
 
+" Split line (opposite of J)
 nnoremap S mzi<cr><esc>`z
