@@ -80,7 +80,7 @@ set hidden							" Allow to hide buffer instead of closing it
 
 "set list
 "set listchars=tab:▸‑,eol:¬
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:·\ ,eol:¬
 set showbreak=↪
 
 set tabstop=4						" <tab> is 4 spaces large
