@@ -106,6 +106,8 @@ man() {
 }
 export GROFF_NO_SGR=1
 
+# Set proper term variable for weechat"
+alias weechat='TERM=screen-256color weechat'
 
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
@@ -116,10 +118,11 @@ fi
 # Git aliases
 alias gst='git status'
 alias gsb='git status -sb'
-alias glg='git log --decorate'
 alias glo='git log --oneline --decorate'
-alias glgg='git log --oneline --decorate --graph'
-alias glgga='git log --oneline --decorate --graph --all'
+alias glg='git log --decorate'
+alias glga='git log --decorate --all'
+alias glgg='git log --decorate --graph --oneline'
+alias glgga='git log --decorate --graph --oneline --all'
 alias gck='git checkout'
 alias grv='git remote -v'
 alias grs='git remote show'
