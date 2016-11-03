@@ -78,8 +78,7 @@ set encoding=utf8					" Set correct encoding
 set backspace=indent,eol,start		" Fix backspace
 set hidden							" Allow to hide buffer instead of closing it
 
-"set list
-"set listchars=tab:▸‑,eol:¬
+set list
 set listchars=tab:·\ ,eol:¬
 set showbreak=↪
 
@@ -122,8 +121,7 @@ autocmd BufNewFile,BufReadPost *.h setlocal filetype=c
 autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
-autocmd FileType c setlocal colorcolumn=80
-autocmd FileType cpp setlocal colorcolumn=100
+autocmd FileType c,cpp setlocal colorcolumn=80
 autocmd FileType help,man wincmd L			" Display man/help pages in a split
 
 " Enter command mode (leader + <cr>)
@@ -166,7 +164,6 @@ nnoremap <space>k <c-w>k
 let NERDTreeIgnore=['\.o$']
 nnoremap <leader>b :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFocus<cr>
-
 
 " Quickly edit vimrc
 nnoremap <leader>ev :vs ~/.vim/vimrc<cr>
