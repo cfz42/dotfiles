@@ -37,3 +37,6 @@
 [submodule "symlink/vim/bundle/supertab"]
 	path = symlink/vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "misc/Gdbinit"]
+	path = misc/Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
