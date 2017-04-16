@@ -1,3 +1,5 @@
+set surround
+
 nnoremap gg=G :action ReformatCode<CR>
 inoremap jk <ESC>
 nnoremap j gj
