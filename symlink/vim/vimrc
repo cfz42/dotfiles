@@ -22,6 +22,8 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Save ~ files in separate folder
+set backupdir=~/.vim/backup
 
 " Vim leader/localleader
 let mapleader = "\<space>"					" Main shortcuts
