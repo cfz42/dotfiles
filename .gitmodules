@@ -1,18 +1,6 @@
-[submodule "symlink/vim/bundle/ctrlp.vim"]
-	path = symlink/vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "symlink/vim/bundle/nerdtree"]
 	path = symlink/vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "symlink/vim/bundle/syntastic"]
-	path = symlink/vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "symlink/vim/bundle/ultisnips"]
-	path = symlink/vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "symlink/vim/bundle/vim-snippets"]
-	path = symlink/vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule "symlink/vim/bundle/vim-javascript"]
 	path = symlink/vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -31,12 +19,6 @@
 [submodule "symlink/vim/bundle/auto-pairs"]
 	path = symlink/vim/bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
-[submodule "symlink/vim/bundle/YouCompleteMe"]
-	path = symlink/vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "symlink/vim/bundle/supertab"]
-	path = symlink/vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "misc/Gdbinit"]
 	path = misc/Gdbinit
 	url = https://github.com/gdbinit/Gdbinit.git

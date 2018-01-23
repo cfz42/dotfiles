@@ -1,7 +1,6 @@
-" Set correct runtimepath
-set nocompatible
 execute pathogen#infect()
 execute pathogen#helptags()
+
 filetype plugin indent on 			" Load file specific plugins/indent settings
 
 if has("mouse_sgr")
@@ -12,22 +11,21 @@ end
 " set regexpengine=1
 
 " Make YCM compatible with UltiSnips (using supertab)
-let g:ycm_auto_trigger = 0
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:ycm_auto_trigger = 0
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " UltiSnips keymap
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Save ~ files in separate folder
 set backupdir=~/.vim/backup
 
 " Vim leader/localleader
-let mapleader = "\<space>"					" Main shortcuts
-"let localleader=' '					" Localleader to avoid conflicts
+let mapleader = "\<space>"				" Main shortcuts
 
 " Enable syntax highlighting
 syntax enable
@@ -47,22 +45,22 @@ runtime ftplugin/man.vim
 nnoremap K :Man <cword><cr><c-w>L
 
 " C syntastic config
-let g:syntastic_c_compiler = 'clang'
-let g:syntastic_c_compiler_options = '-Wall -Wextra'
-let g:syntastic_c_include_dirs = ['libft/inc', 'inc', 'includes']
-let g:syntastic_c_check_header = '1'
+"let g:syntastic_c_compiler = 'clang'
+"let g:syntastic_c_compiler_options = '-Wall -Wextra'
+"let g:syntastic_c_include_dirs = ['libft/inc', 'inc', 'includes']
+"let g:syntastic_c_check_header = '1'
 "let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Cpp syntastic config
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-Wall -Wextra -std=c++11'
-let g:syntastic_cpp_include_dirs = ['libft/inc', 'inc', 'includes']
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = '-Wall -Wextra -std=c++11'
+"let g:syntastic_cpp_include_dirs = ['libft/inc', 'inc', 'includes']
 
 " Javascript syntastic config
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 
 " Asm syntastic config
-let g:syntastic_asm_compiler = "nasm"
+"let g:syntastic_asm_compiler = "nasm"
 
 " Speed up redraw
 set lazyredraw
@@ -102,13 +100,13 @@ nnoremap N Nzzzv
 nnoremap <leader>N Nzzzv:nohlsearch<cr>
 
 set autoindent						" Keep same indent on newline
-set cindent						" Use C-style indentation
-set hlsearch					" Highlight search results
-set incsearch					" Search as soon as we type
-set number						" Display line number 
+set cindent							" Use C-style indentation
+set hlsearch						" Highlight search results
+set incsearch						" Search as soon as we type
+set number							" Display line number 
 "set rnu							" Display relative num (except current line in vim >= 7.4)
 set laststatus=2					" Always show status line
-set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %{SyntasticStatuslineFlag()}%m
+set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them
@@ -170,15 +168,12 @@ nnoremap <leader>f :NERDTreeFocus<cr>
 " Quickly edit vimrc
 nnoremap <leader>ev :vs ~/.vim/vimrc<cr>
 
-" Quickly edit snippets
-nnoremap <leader>sni :vs ~/.vim/bundle/vim-snippets/snippets<cr>
-
 " Save / Close files
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 
 " Add ; quickly
-nnoremap <leader>; A;<esc>
+nnoremap ;; maA;<esc>`a
 
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
