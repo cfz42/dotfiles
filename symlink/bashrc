@@ -83,4 +83,3 @@ alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
 
 alias tmux='tmux -2'
-source '/home/cfernandez/.babun-docker/setup.sh'

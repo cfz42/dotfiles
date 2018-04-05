@@ -1,5 +1,4 @@
 export LANG='en_US.UTF-8'
-export AMDAPPSDKROOT="/home/clement/crypto/AMDAPPSDK-3.0"
 
 # Prompt configuration
 autoload -Uz colors && colors
@@ -19,7 +18,7 @@ if [[ -z "$CYGWIN" ]] then
     GIT_PS1_SHOWCOLORHINTS=true
 
     LEFT_PROMPT='%n@%m:%~'
-	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+    COLORED_LEFT_PROMPT='%{$fg_bold[green]%}clement@desktop%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
     COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
     NEWLINE=$'\n'
     # Adds necessary padding to right align [jobs] | date (last exit status)
@@ -45,8 +44,46 @@ if [[ -z "$CYGWIN" ]] then
 	else
 	    RIGHT_PROMPT='[%j] | %* %?⤶ '
 	fi
+<<<<<<< 57c4a8905b084c149f34f70f8b53c9fae399cb7a
 	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
     }
+=======
+
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWCOLORHINTS=true
+
+	LEFT_PROMPT='%n@%m:%~'
+	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+	COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+	NEWLINE=$'\n'
+	# Adds necessary padding to right align [jobs] | date (last exit status)
+	right_align() {
+		local PADDING=''
+		local PADDING_CHAR=' '
+
+		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
+		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
+		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
+		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
+		do PADDING=${PADDING}${PADDING_CHAR};
+		done
+		echo $PADDING
+	}
+
+	precmd() {
+		local LAST_EXIT_STATUS=$?
+		if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
+			RIGHT_PROMPT='[%j] | %*'
+		elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
+			RIGHT_PROMPT='[%j] | %* %?⤶  '
+		else
+			RIGHT_PROMPT='[%j] | %* %?⤶ '
+		fi
+		__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
+	}
+>>>>>>> Update prompt with correct variables (user/hostname)
 else
     PS1='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~%{$reset_color%}'$'\n%# '
 fi
@@ -107,8 +144,6 @@ man() {
 }
 export GROFF_NO_SGR=1
 
-# Set proper term variable for weechat"
-alias weechat='TERM=screen-256color weechat'
 
 # Aliases
 if [[ -x /usr/bin/dircolors ]]; then
@@ -119,11 +154,10 @@ fi
 # Git aliases
 alias gst='git status'
 alias gsb='git status -sb'
-alias glo='git log --oneline --decorate'
 alias glg='git log --decorate'
-alias glga='git log --decorate --all'
-alias glgg='git log --decorate --graph --oneline'
-alias glgga='git log --decorate --graph --oneline --all'
+alias glo='git log --oneline --decorate'
+alias glgg='git log --oneline --decorate --graph'
+alias glgga='git log --oneline --decorate --graph --all'
 alias gck='git checkout'
 alias grv='git remote -v'
 alias grs='git remote show'
@@ -134,9 +168,8 @@ alias gres='git reset'
 alias gdt='git difftool'
 alias gmt='git mergetool'
 alias gb='git branch'
+alias gcp='git cherry-pick'
 alias gcm='git commit'
-alias gd='git diff'
-alias gds='git diff --staged'
 
 #alias tmux='tmux -2' # Force tmux to use 256 colors
 
@@ -159,4 +192,4 @@ if [[ "$COLORTERM" == "xfce4-terminal" && -z "$TMUX" ]]; then
     export TERM=xterm-256color
 fi
 
-alias shrug='cat ~/.idontcare'
+alias idc='cat ~/.idontcare'
