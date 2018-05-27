@@ -50,3 +50,6 @@ node_modules/
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+
+# ctags file
+tags

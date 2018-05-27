@@ -5,10 +5,10 @@
 	ui = true
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	trustctime = false
 	autocrlf = input
-	preloadindex = true
+	preloadIndex = true
 [diff]
 	tool = vimdiff
 [merge]

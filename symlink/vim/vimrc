@@ -1,20 +1,26 @@
-execute pathogen#infect()
-execute pathogen#helptags()
+so ~/.vim/plugins.vim
 
-filetype plugin indent on 			" Load file specific plugins/indent settings
+set rtp+=~/.fzf
 
-if has("mouse_sgr")
-	set ttymouse=sgr
-end
+let g:fzf_buffers_jump = 1
+
+" Vim leader/localleader
+let mapleader = "\<space>"				" Main shortcuts
+
+" if has("mouse_sgr")
+" 	set ttymouse=sgr
+" end
 
 " If problems with regexes in vim-javascript, uncomment below
 " set regexpengine=1
+
+" Fix supertab <Tab> default behaviour (correct top to bottom cycle)
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Make YCM compatible with UltiSnips (using supertab)
 " let g:ycm_auto_trigger = 0
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " UltiSnips keymap
 " let g:UltiSnipsExpandTrigger = "<tab>"
@@ -22,10 +28,8 @@ end
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Save ~ files in separate folder
-set backupdir=~/.vim/backup
-
-" Vim leader/localleader
-let mapleader = "\<space>"				" Main shortcuts
+set backupdir^=$HOME/.vim/backup//
+set directory^=$HOME/.vim/swap//
 
 " Enable syntax highlighting
 syntax enable
@@ -34,10 +38,12 @@ syntax enable
 "let g:solarized_termcolors=256
 colorscheme hybrid
 
-highlight VertSplit   ctermbg=bg
-highlight Folded      term=none cterm=none
-"highlight SpecialKey  ctermbg=bg
-" highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
+if !has("gui_running")
+	highlight VertSplit   ctermbg=bg
+	highlight Folded      term=none cterm=none
+	"highlight SpecialKey  ctermbg=bg
+	"highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
+endif
 
 " Open man pages in vim and bind K to split them
 runtime ftplugin/man.vim
@@ -79,7 +85,7 @@ set hidden							" Allow to hide buffer instead of closing it
 
 set list
 set listchars=tab:·\ ,eol:¬
-set showbreak=↪
+"set showbreak=\
 
 set tabstop=4						" <tab> is 4 spaces large
 set softtabstop=4					" <tab> in i mode is 4 spaces large (mixed spaces and tab)
@@ -98,14 +104,12 @@ nnoremap <leader>n nzzzv:nohlsearch<cr>
 nnoremap N Nzzzv
 nnoremap <leader>N Nzzzv:nohlsearch<cr>
 
+set number							" Display line number
+"set rnu							" Display relative num (except current line in vim >= 7.4)
 set autoindent						" Keep same indent on newline
 set cindent							" Use C-style indentation
-set hlsearch						" Highlight search results
-set incsearch						" Search as soon as we type
-set number							" Display line number 
-"set rnu							" Display relative num (except current line in vim >= 7.4)
 set laststatus=2					" Always show status line
-set statusline=%t\ -\ %y%=%r\ %l/%L[%c]\ %m
+set statusline=%f\ -\ %y%=%r\ %l/%L[%c]\ %m
 set cursorline						" Display current line
 set showmatch						" Display matching braces
 set showcmd							" Show commands as you type them
@@ -123,9 +127,6 @@ autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType c,cpp setlocal colorcolumn=80
 autocmd FileType help,man wincmd L			" Display man/help pages in a split
 
-" Enter command mode (leader + <cr>)
-nnoremap <leader> :
-
 " Hit <esc> quicker
 inoremap jk <esc>
 snoremap jk <esc>
@@ -139,19 +140,9 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Browse buffers
-nnoremap <c-up> :bnext<cr>
-nnoremap <c-right> :bnext<cr>
-nnoremap <c-down> :bprev<cr>
-nnoremap <c-left> :bprev<cr>
-
-" Close buffer
-nnoremap <leader>d :bdel<cr>
-
 " Navigate through tabs
-nnoremap <c-h> :tabnext<cr>
-nnoremap <c-l> :tabprevious<cr>
-nnoremap <c-e> :tabedit
+nnoremap <c-h> :tabprevious<cr>
+nnoremap <c-l> :tabnext<cr>
 
 "Navigate through splits
 nnoremap <space>l <c-w>l
@@ -160,12 +151,12 @@ nnoremap <space>j <c-w>j
 nnoremap <space>k <c-w>k
 
 " Quick access to NERDTree
+let g:NERDTreeWinSize=19
 let NERDTreeIgnore=['\.o$']
-nnoremap <leader>b :NERDTreeToggle<cr>
-nnoremap <leader>f :NERDTreeFocus<cr>
+nnoremap <leader>n :NERDTreeFocus<cr>
 
 " Quickly edit vimrc
-nnoremap <leader>ev :vs ~/.vim/vimrc<cr>
+nnoremap <leader>vi :vs ~/.vim/vimrc<cr>
 
 " Save / Close files
 nnoremap <leader>w :w<cr>
@@ -184,5 +175,38 @@ nnoremap z<space> zA
 " Split line (opposite of J)
 nnoremap S mzi<cr><esc>`z
 
-nnoremap L 2l
-nnoremap H 2h
+" Find everywhere (requires fzf and rg)
+command! -bang -nargs=* Rg 
+	\ call fzf#vim#grep(
+	\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --hidden '.
+	\ '--no-ignore --glob "!.git/*" --glob "!tags" --color "always" '.shellescape(<q-args>),
+	\ 0,
+	\ <bang>0
+	\   ? fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'},
+	\     'up:60%')
+	\   : fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'}, 'right:50%'),
+	\ <bang>0)
+
+command! -bang -nargs=* Ag
+	\ call fzf#vim#ag(<q-args>,
+	\ <bang>0
+	\   ? fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'}, 'up:60%')
+	\   : fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'}, 'right:50%:hidden', '?'),
+	\ <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Fzf quickly open file
+nnoremap <leader>e :Files<cr>
+
+" Binding for the Find everywhere function
+nnoremap <leader>f :Rg<cr>
+
+" Quickly navigate to open file
+nnoremap <leader>o :Windows<cr>
+nnoremap <leader>b :Buffers<cr>
+
+nnoremap <F5> :Make<cr>
+nnoremap <F6> :botright :Copen<cr>
+nnoremap <F9> :vertical rightbelow :terminal<cr><c-w>L

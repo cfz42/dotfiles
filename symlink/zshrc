@@ -1,5 +1,4 @@
 export LANG='en_US.UTF-8'
-export AMDAPPSDKROOT="/home/clement/crypto/AMDAPPSDK-3.0"
 
 # Prompt configuration
 autoload -Uz colors && colors
@@ -20,9 +19,10 @@ if [[ -z "$CYGWIN" ]] then
 
     LEFT_PROMPT='%n@%m:%~'
 	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-    COLORED_RIGHT_PROMPT='%{$fg_no_bold[black]%}[%j] %{$fg_bold[black]%}| %*%(?..%{$fg_no_bold[red]%} %?⤶)%{$reset_color%}'
+	COLORED_RIGHT_PROMPT='%{$fg_bold[black]%}[%j] | %*%(?..%{$fg_no_bold[red]%} %?¬)%{$reset_color%}'
     NEWLINE=$'\n'
-    # Adds necessary padding to right align [jobs] | date (last exit status)
+
+    # Adds necessary padding to right align jobs | date (last exit status)
     right_align() {
 	local PADDING=''
 	local PADDING_CHAR=' '
@@ -41,9 +41,9 @@ if [[ -z "$CYGWIN" ]] then
 	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
 	    RIGHT_PROMPT='[%j] | %*'
 	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
-	    RIGHT_PROMPT='[%j] | %* %?⤶  '
+	    RIGHT_PROMPT='[%j] | %* %?¬ '
 	else
-	    RIGHT_PROMPT='[%j] | %* %?⤶ '
+	    RIGHT_PROMPT='[%j] | %* %?¬'
 	fi
 	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
     }
@@ -141,6 +141,7 @@ alias gds='git diff --staged'
 #alias tmux='tmux -2' # Force tmux to use 256 colors
 
 alias l='ls -lFh'
+alias la='ls -laFh'
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
@@ -155,8 +156,15 @@ bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[3~" delete-char
 
-if [[ "$COLORTERM" == "xfce4-terminal" && -z "$TMUX" ]]; then
-    export TERM=xterm-256color
-fi
+#if [[ "$COLORTERM" == "xfce4-terminal" && -z "$TMUX" ]]; then
+#    export TERM=xterm-256color
+#fi
 
 alias shrug='cat ~/.idontcare'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use ripgrep witf fzf instead of default find
+#if [[ -x "$(command -v rg)" ]]; then
+#	export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+#fi

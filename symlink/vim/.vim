@@ -1,1 +1,0 @@
-/nfs/2014/c/cfernand/dotfiles/symlink/vim
