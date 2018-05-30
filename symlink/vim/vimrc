@@ -1,23 +1,26 @@
+" Vim main configuration file
+" vim: cc=100
+
 " Enable plugins with tpope's pathogen
 execute pathogen#infect()
 
 " Generate helptags for our plugins
 execute pathogen#helptags()
 
+" Enable filetype detection for plugins and indentation
+filetype plugin indent on
+
+" Enable syntax highlighting
+syntax enable
+
+" Jump to the buffer we just opened with fzf (:Buffers, :Windows, etc..)
 let g:fzf_buffers_jump = 1
 
-" Vim leader/localleader
-let mapleader = "\<space>"				" Main shortcuts
+" Leader is used for personal shortcuts
+let mapleader = "\<space>"
 
-" if has("mouse_sgr")
-" 	set ttymouse=sgr
-" end
-
-" If problems with regexes in vim-javascript, uncomment below
+" If problems with regexes & vim-javascript, uncomment below
 " set regexpengine=1
-
-" Fix supertab <Tab> default behaviour (correct top to bottom cycle)
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Make YCM compatible with UltiSnips (using supertab)
 " let g:ycm_auto_trigger = 0
@@ -29,23 +32,13 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Save ~ files in separate folder
+" Save swap/backup files in centralized folder
 set backupdir^=$HOME/.vim/backup//
 set directory^=$HOME/.vim/swap//
-
-" Enable syntax highlighting
-syntax enable
 
 "set background=dark
 "let g:solarized_termcolors=256
 colorscheme hybrid
-
-if !has("gui_running")
-	highlight VertSplit   ctermbg=bg
-	highlight Folded      term=none cterm=none
-	"highlight SpecialKey  ctermbg=bg
-	"highlight ColorColumn term=reverse cterm=reverse ctermfg=12 ctermbg=7 gui=reverse
-endif
 
 " Open man pages in vim and bind K to split them
 runtime ftplugin/man.vim
@@ -69,45 +62,58 @@ nnoremap K :Man <cword><cr><c-w>L
 " Asm syntastic config
 "let g:syntastic_asm_compiler = "nasm"
 
-" Speed up redraw
+" Speed up redraw while executing macros (mostly)
 set lazyredraw
 
-" ignore whitespaces in vimdiff
+" Ignore whitespaces in vimdiff
 set diffopt+=iwhite
 
+" Enable mouse support
 set mouse+=a
 
 "set foldcolumn=4
 set foldmethod=syntax
 set foldlevelstart=5
 
-set encoding=utf8					" Set correct encoding
-set backspace=indent,eol,start		" Fix backspace
-set hidden							" Allow to hide buffer instead of closing it
+" Set correct encoding
+set encoding=utf8
 
+" Fix backspace weird default behaviour
+set backspace=indent,eol,start
+
+" Hide buffers so that we don't need to close them before switching to another
+set hidden
+
+" Show invisible characters (tabs and eol)
 set list
 set listchars=tab:·\ ,eol:¬
-"set showbreak=\
 
-set tabstop=4						" <tab> is 4 spaces large
-set softtabstop=4					" <tab> in i mode is 4 spaces large (mixed spaces and tab)
-set shiftwidth=4					" Indent with 4 spaces
-set smarttab						" Intelligent <tab> insertion
+" Tabulation settings
+set tabstop=4		" <tab> is 4 spaces large
+set softtabstop=4	" <tab> in i mode is 4 spaces large (mixed spaces and tab)
+set shiftwidth=4	" Indent with 4 spaces
+set smarttab		" Intelligent <tab> insertion
 
-set ignorecase
-set smartcase
-set incsearch						" Search as soon as we type
-set hlsearch
+" Fix supertab <Tab> default behaviour (correct top to bottom cycle)
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Search settings
+set ignorecase		" Ignore case most of the time..
+set smartcase		" ..unless we use capital letters
+set incsearch		" Search as soon as we type
+set hlsearch		" Highlight search results
+
+" Quickly disable highlighting
+nnoremap <leader>/ :nohlsearch<cr>
 
 " Go to next result and center buffer
 nnoremap n nzzzv
-nnoremap <leader>n nzzzv:nohlsearch<cr>
+
 " Go to prev result and center buffer
 nnoremap N Nzzzv
-nnoremap <leader>N Nzzzv:nohlsearch<cr>
 
+" Misc settings
 set number							" Display line number
-"set rnu							" Display relative num (except current line in vim >= 7.4)
 set autoindent						" Keep same indent on newline
 set cindent							" Use C-style indentation
 set laststatus=2					" Always show status line
@@ -121,20 +127,14 @@ set wildmode=list:longest,full		" Show them all
 set splitbelow						" Force new windows to open below..
 set splitright						" .. on the right
 
-" Do not set .h files as cpp
+" Fix some filetype detection
 autocmd BufNewFile,BufReadPost *.h setlocal filetype=c
 autocmd BufWritePost,BufReadPost *.tpp setlocal filetype=cpp
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
-autocmd FileType c,cpp setlocal colorcolumn=80
-autocmd FileType help,man wincmd L			" Display man/help pages in a split
-
-" Hit <esc> quicker
+" Hit <esc> quicker (best vim shortcut ever)
 inoremap jk <esc>
 snoremap jk <esc>
-
-" Mapping to disable highlighting
-nnoremap <leader>/ :nohlsearch<cr>
 
 " Navigate through wrapped lines
 nnoremap j gj
@@ -146,13 +146,13 @@ vnoremap k gk
 nnoremap <c-h> :tabprevious<cr>
 nnoremap <c-l> :tabnext<cr>
 
-"Navigate through splits
+" Navigate through splits
 nnoremap <space>l <c-w>l
 nnoremap <space>h <c-w>h
 nnoremap <space>j <c-w>j
 nnoremap <space>k <c-w>k
 
-" Quick access to NERDTree
+" NERDTree config
 let g:NERDTreeWinSize=19
 let NERDTreeIgnore=['\.o$']
 nnoremap <leader>n :NERDTreeFocus<cr>
@@ -160,35 +160,26 @@ nnoremap <leader>n :NERDTreeFocus<cr>
 " Quickly edit vimrc
 nnoremap <leader>vi :vs ~/.vim/vimrc<cr>
 
-" Save / Close files
+" Save / close buffers
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 
-" Add ; quickly
+" Add ; at the end of the line quickly
 nnoremap ;; maA;<esc>`a
 
+" Shell like shortcuts
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
+" Toggle split recursively
 nnoremap z<space> zA
 
 " Split line (opposite of J)
 nnoremap S mzi<cr><esc>`z
 
-" Find everywhere (requires fzf and rg)
-command! -bang -nargs=* Rg 
-	\ call fzf#vim#grep(
-	\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --hidden '.
-	\ '--no-ignore --glob "!.git/*" --glob "!tags" --color "always" '.shellescape(<q-args>),
-	\ 0,
-	\ <bang>0
-	\   ? fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'},
-	\     'up:60%')
-	\   : fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'}, 'right:50%'),
-	\ <bang>0)
-
+" Grep in current folder using the-silver-searcher (ag)
 command! -bang -nargs=* Ag
 	\ call fzf#vim#ag(<q-args>,
 	\ <bang>0
@@ -196,19 +187,25 @@ command! -bang -nargs=* Ag
 	\   : fzf#vim#with_preview({'options': '--delimiter=: --nth 4..'}, 'right:50%:hidden', '?'),
 	\ <bang>0)
 
+" Binding for the Ag command
+nnoremap <leader>f :Ag<cr>
+
+" Override Files command to have preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-" Fzf quickly open file
+" Binding for the Files command
 nnoremap <leader>e :Files<cr>
 
-" Binding for the Find everywhere function
-nnoremap <leader>f :Rg<cr>
-
-" Quickly navigate to open file
+" Quickly switch between windows/buffers 
 nnoremap <leader>o :Windows<cr>
 nnoremap <leader>b :Buffers<cr>
 
+" Binding for vim-dispatch Make command
 nnoremap <F5> :Make<cr>
+
+" Open quickfix window in a full-width horizontal split
 nnoremap <F6> :botright :Copen<cr>
+
+" Open terminal window in a new vertical split
 nnoremap <F9> :vertical rightbelow :terminal<cr><c-w>L
