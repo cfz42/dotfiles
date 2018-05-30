@@ -1,0 +1,27 @@
+[submodule "symlink/vim/pack/cfz/start/auto-pairs"]
+	path = symlink/vim/pack/cfz/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "symlink/vim/pack/cfz/start/fzf.vim"]
+	path = symlink/vim/pack/cfz/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "symlink/vim/pack/cfz/start/nerdtree"]
+	path = symlink/vim/pack/cfz/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "symlink/vim/pack/cfz/start/supertab"]
+	path = symlink/vim/pack/cfz/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "symlink/vim/pack/cfz/start/vim-commentary"]
+	path = symlink/vim/pack/cfz/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "symlink/vim/pack/cfz/start/vim-javascript"]
+	path = symlink/vim/pack/cfz/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "symlink/vim/pack/cfz/start/vim-surround"]
+	path = symlink/vim/pack/cfz/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "symlink/vim/pack/cfz/start/vim-unimpaired"]
+	path = symlink/vim/pack/cfz/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "symlink/vim/pack/cfz/start/vim-dispatch"]
+	path = symlink/vim/pack/cfz/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch

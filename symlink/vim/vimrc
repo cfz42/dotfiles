@@ -1,6 +1,8 @@
-so ~/.vim/plugins.vim
+" Enable plugins with tpope's pathogen
+execute pathogen#infect()
 
-set rtp+=~/.fzf
+" Generate helptags for our plugins
+execute pathogen#helptags()
 
 let g:fzf_buffers_jump = 1
 
