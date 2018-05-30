@@ -1,62 +1,72 @@
+# Set locale to US with utf-8 support
 export LANG='en_US.UTF-8'
 
-# Prompt configuration
+# Add ~/bin to PATH with highest priority
+export PATH=$HOME/bin:$PATH
+
+# Load colors for use in zsh (prompt mainly)
 autoload -Uz colors && colors
+
+# Expand $ etc in prompt
 setopt PROMPT_SUBST
+
+# Typing directory name cd into it
 setopt AUTOCD
 
-# Disable git prompt on cygwin
-if [[ -z "$CYGWIN" ]] then
-    # Git prompt functions (used in precmd)
-    if [[ -f ~/.git-prompt.sh ]] then
+# Load git prompt functions (used in precmd)
+if [[ -f ~/.git-prompt.sh ]] then
 	source ~/.git-prompt.sh
-    fi
+fi
 
-    GIT_PS1_SHOWDIRTYSTATE=true
-    GIT_PS1_SHOWUPSTREAM="auto"
-    GIT_PS1_SHOWUNTRACKEDFILES=true
-    GIT_PS1_SHOWCOLORHINTS=true
+# Git prompt config
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWCOLORHINTS=true
 
-    LEFT_PROMPT='%n@%m:%~'
-	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-	COLORED_RIGHT_PROMPT='%{$fg_bold[black]%}[%j] | %*%(?..%{$fg_no_bold[red]%} %?¬)%{$reset_color%}'
-    NEWLINE=$'\n'
+# Prompt parts
+LEFT_PROMPT='%n@%m:%~'
+COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+COLORED_RIGHT_PROMPT='%{$fg_bold[black]%}[%j] | %*%(?..%{$fg_no_bold[red]%} %?¬)%{$reset_color%}'
+NEWLINE=$'\n'
 
-    # Adds necessary padding to right align jobs | date (last exit status)
-    right_align() {
+# Helper function for precmd (prompt) configuration
+# Adds necessary padding to right align jobs | date (last exit status)
+right_align() {
 	local PADDING=''
 	local PADDING_CHAR=' '
 
 	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
 	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) )) # +2 in Konsole
+
+	# Add +2 for Konsole support (scroll bar takes an exta column)
+	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) ))
+
 	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
 	do PADDING=${PADDING}${PADDING_CHAR};
 	done
 	echo $PADDING
-    }
+}
 
-    precmd() {
+# Prompt configuration
+precmd() {
 	local LAST_EXIT_STATUS=$?
 	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
-	    RIGHT_PROMPT='[%j] | %*'
+		RIGHT_PROMPT='[%j] | %*'
 	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
-	    RIGHT_PROMPT='[%j] | %* %?¬ '
+		RIGHT_PROMPT='[%j] | %* %?¬ '
 	else
-	    RIGHT_PROMPT='[%j] | %* %?¬'
+		RIGHT_PROMPT='[%j] | %* %?¬'
 	fi
 	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
-    }
-else
-    PS1='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~%{$reset_color%}'$'\n%# '
-fi
+}
 
 # History settings
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 
 if [[ -x /usr/bin/stty ]]; then
-    /usr/bin/stty -ixon		# Disable <C-s> <C-q>
+	/usr/bin/stty -ixon		# Disable <C-s> <C-q>
 fi
 unsetopt FLOW_CONTROL	# Disable <C-s> <C-q>
 setopt noflowcontrol	# Disable <C-s> <C-q>
@@ -70,7 +80,7 @@ HISTFILE=~/.zsh_history
 # Use modern completion system
 autoload -U compinit && compinit
 if [[ -f ~/.git-completion.zsh ]] then
-    zstyle -T ':completion:*:*:git:*' script ~/.git-completion.zsh
+	zstyle -T ':completion:*:*:git:*' script ~/.git-completion.zsh
 fi
 
 # Completion configuration
@@ -78,7 +88,7 @@ fi
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' group-name '' # Group suggestions by tags
 if [[ -x /usr/bin/dircolors ]]; then
-    eval "$(dircolors -b)" # Load ls colors
+	eval "$(dircolors -b)" # Load ls colors
 fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
@@ -96,24 +106,24 @@ export CLICOLOR=1 # Enable command line colors on Mac / BSD (eg: ls output)
 
 # Colored man pages with less
 man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-	LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-	LESS_TERMCAP_me=$'\E[0m' \
-	LESS_TERMCAP_se=$'\E[0m' \
-	LESS_TERMCAP_so=$'\E[38;5;246m' \
-	LESS_TERMCAP_ue=$'\E[0m' \
-	LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-	man "$@"
+	env LESS_TERMCAP_mb=$'\E[01;31m' \
+		LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+		LESS_TERMCAP_me=$'\E[0m' \
+		LESS_TERMCAP_se=$'\E[0m' \
+		LESS_TERMCAP_so=$'\E[38;5;246m' \
+		LESS_TERMCAP_ue=$'\E[0m' \
+		LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+		man "$@"
 }
 export GROFF_NO_SGR=1
 
 # Set proper term variable for weechat"
-alias weechat='TERM=screen-256color weechat'
+# alias weechat='TERM=screen-256color weechat'
 
 # Aliases
-if [[ -x /usr/bin/dircolors ]]; then
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
+if [[ -x "$(command -v dircolors)" ]]; then
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
 fi
 
 # Git aliases
@@ -147,8 +157,8 @@ alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 if [[ -x $HOME/.brew/bin/brew ]]; then
-    export PATH="$HOME/.brew/bin:$PATH"
-    export HOMEBREW_CACHE="/tmp/homebrew_cache"
+	export PATH="$HOME/.brew/bin:$PATH"
+	export HOMEBREW_CACHE="/tmp/homebrew_cache"
 fi
 
 # Key bindings
