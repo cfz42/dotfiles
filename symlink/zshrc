@@ -170,7 +170,7 @@ bindkey "\e[3~" delete-char
 #    export TERM=xterm-256color
 #fi
 
-alias shrug='cat ~/.idontcare'
+alias shrug='cat ~/.shrug'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

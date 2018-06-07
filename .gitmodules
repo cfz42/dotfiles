@@ -25,3 +25,6 @@
 [submodule "symlink/vim/pack/cfz/start/vim-dispatch"]
 	path = symlink/vim/pack/cfz/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
+[submodule "misc/Gdbinit"]
+	path = misc/Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
