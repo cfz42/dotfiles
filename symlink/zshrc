@@ -13,53 +13,57 @@ setopt PROMPT_SUBST
 # Typing directory name cd into it
 setopt AUTOCD
 
-# Load git prompt functions (used in precmd)
-if [[ -f ~/.git-prompt.sh ]] then
-	source ~/.git-prompt.sh
-fi
-
-# Git prompt config
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWCOLORHINTS=true
-
-# Prompt parts
-LEFT_PROMPT='%n@%m:%~'
-COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
-COLORED_RIGHT_PROMPT='%{$fg_bold[black]%}[%j] | %*%(?..%{$fg_no_bold[red]%} %?¬)%{$reset_color%}'
-NEWLINE=$'\n'
-
-# Helper function for precmd (prompt) configuration
-# Adds necessary padding to right align jobs | date (last exit status)
-right_align() {
-	local PADDING=''
-	local PADDING_CHAR=' '
-
-	LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
-	RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
-
-	# Add +2 for Konsole support (scroll bar takes an exta column)
-	(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) ))
-
-	for (( i = 0; i < ${PADDING_SIZE}; i++ ));
-	do PADDING=${PADDING}${PADDING_CHAR};
-	done
-	echo $PADDING
-}
-
-# Prompt configuration
-precmd() {
-	local LAST_EXIT_STATUS=$?
-	if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
-		RIGHT_PROMPT='[%j] | %*'
-	elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
-		RIGHT_PROMPT='[%j] | %* %?¬ '
-	else
-		RIGHT_PROMPT='[%j] | %* %?¬'
+if [[ -v $OSTYPE && $OSTYPE != 'cygwin' ]]; then
+	# Load git prompt functions (used in precmd)
+	if [[ -f ~/.git-prompt.sh ]]; then
+		source ~/.git-prompt.sh
 	fi
-	__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
-}
+
+	# Git prompt config
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWCOLORHINTS=true
+
+	# Prompt parts
+	LEFT_PROMPT='%n@%m:%~'
+	COLORED_LEFT_PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~ %{$reset_color%}'
+	COLORED_RIGHT_PROMPT='%{$fg_bold[black]%}[%j] | %*%(?..%{$fg_no_bold[red]%} %?¬)%{$reset_color%}'
+	NEWLINE=$'\n'
+
+	# Helper function for precmd (prompt) configuration
+	# Adds necessary padding to right align jobs | date (last exit status)
+	right_align() {
+		local PADDING=''
+		local PADDING_CHAR=' '
+
+		LEFT_PROMPT_SIZE="${#${(%)LEFT_PROMPT}}"
+		RIGHT_PROMPT_SIZE="${#${(%)RIGHT_PROMPT}}"
+
+		# Add +2 for Konsole support (scroll bar takes an exta column)
+		(( PADDING_SIZE=${COLUMNS} - (${RIGHT_PROMPT_SIZE} + ${LEFT_PROMPT_SIZE} + 2) ))
+
+		for (( i = 0; i < ${PADDING_SIZE}; i++ ));
+		do PADDING=${PADDING}${PADDING_CHAR};
+		done
+		echo $PADDING
+	}
+
+	# Prompt configuration
+	precmd() {
+		local LAST_EXIT_STATUS=$?
+		if [[ $LAST_EXIT_STATUS -eq 0 ]]; then
+			RIGHT_PROMPT='[%j] | %*'
+		elif [[ $LAST_EXIT_STATUS -ge 100 ]]; then
+			RIGHT_PROMPT='[%j] | %* %?¬ '
+		else
+			RIGHT_PROMPT='[%j] | %* %?¬'
+		fi
+		__git_ps1 "${COLORED_LEFT_PROMPT}$(right_align)${COLORED_RIGHT_PROMPT}${NEWLINE}" " %# " "%s"
+	}
+else
+    PS1='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%~%{$reset_color%}'$'\n%# '
+fi # end of cygwin check
 
 # History settings
 setopt HIST_IGNORE_ALL_DUPS
@@ -79,7 +83,9 @@ HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -U compinit && compinit
-if [[ -f ~/.git-completion.zsh ]] then
+
+# Don't load zsh completion functions on cygwin (slow things down)
+if [[ -f ~/.git-completion.zsh && $OSTYPE != 'cygwin' ]] then
 	zstyle -T ':completion:*:*:git:*' script ~/.git-completion.zsh
 fi
 

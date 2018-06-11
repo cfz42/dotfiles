@@ -1,11 +1,11 @@
-BoldAsFont=no
+BoldAsFont=yes
 Font=Source Code Pro
 FontSmoothing=full
 CursorType=block
 CursorBlinks=yes
 FontHeight=10
 FontWeight=400
-ThemeFile=C:\cygwin\home\cfernandez\dotfiles\themes\hybrid\hybrid.mintty
+ThemeFile=C:\Users\cfernandez\Desktop\solarized-mintty\minttyrc--solarized-light.txt
 
 BackgroundColour=29,31,33
 ForegroundColour=197,200,198
@@ -26,3 +26,8 @@ Cyan=94,141,135
 BoldCyan=138,190,183
 White=112,120,128
 BoldWhite=197,200,198
+Term=xterm-256color
+BoldAsColour=yes
+FontIsBold=no
+Locale=C
+Charset=UTF-8
