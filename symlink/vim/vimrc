@@ -1,5 +1,10 @@
 " Vim main configuration file
-" vim: cc=100
+" vim: cc=80
+"
+"******************************************************************************
+
+" Required
+set nocompatible
 
 " Enable plugins with tpope's pathogen
 execute pathogen#infect()
@@ -8,10 +13,35 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 " Enable filetype detection for plugins and indentation
-filetype plugin indent on
+filetype plugin on
+filetype indent on
+
+"******************************************************************************
 
 " Enable syntax highlighting
-syntax enable
+syntax on
+
+" Enable 'true' colors
+set termguicolors
+
+" Set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+function! CustomHighlights() abort
+	highlight VertSplit ctermbg=bg guibg=bg
+endfunction
+
+" Highlights override (must be placed before 'colorscheme' setting)
+augroup colors_override
+	autocmd!
+	autocmd ColorScheme * call CustomHighlights()
+augroup END
+
+" Color scheme (can be modified with :Colors or :colorscheme)
+" colorscheme hybrid
+" colorscheme solarized8_light
+colorscheme solarized8_dark
 
 " Jump to the buffer we just opened with fzf (:Buffers, :Windows, etc..)
 let g:fzf_buffers_jump = 1
@@ -33,12 +63,9 @@ let mapleader = "\<space>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Save swap/backup files in centralized folder
-set backupdir^=$HOME/.vim/backup//
-set directory^=$HOME/.vim/swap//
+set backupdir^=$HOME/.vim/.backup/
+set directory^=$HOME/.vim/.swap/
 
-"set background=dark
-"let g:solarized_termcolors=256
-colorscheme hybrid
 
 " Open man pages in vim and bind K to split them
 runtime ftplugin/man.vim
@@ -85,7 +112,7 @@ set backspace=indent,eol,start
 set hidden
 
 " Show invisible characters (tabs and eol)
-set list
+set nolist
 set listchars=tab:·\ ,eol:¬
 
 " Tabulation settings
@@ -126,6 +153,7 @@ set wildmenu						" Show more results on <tab>
 set wildmode=list:longest,full		" Show them all
 set splitbelow						" Force new windows to open below..
 set splitright						" .. on the right
+set scrolloff=5						" Keep 5 lines visible when scrolling
 
 " Fix some filetype detection
 autocmd BufNewFile,BufReadPost *.h setlocal filetype=c
@@ -203,6 +231,7 @@ nnoremap <leader>b :Buffers<cr>
 
 " Binding for vim-dispatch Make command
 nnoremap <F5> :Make<cr>
+nnoremap <F7> :Make re<cr>
 
 " Open quickfix window in a full-width horizontal split
 nnoremap <F6> :botright :Copen<cr>

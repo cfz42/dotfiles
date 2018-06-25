@@ -28,3 +28,6 @@
 [submodule "misc/Gdbinit"]
 	path = misc/Gdbinit
 	url = https://github.com/gdbinit/Gdbinit.git
+[submodule "symlink/vim/pack/cfz/start/vim-solarized8"]
+	path = symlink/vim/pack/cfz/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8
