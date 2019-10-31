@@ -1,0 +1,60 @@
+{
+    "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "workbench.colorTheme": "Material Theme Darker",
+    "vim.surround": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-c>": false
+    },
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "/"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "editor.cursorStyle": "block",
+    "editor.tabSize": 2,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSurroundingLines": 5,
+    "editor.detectIndentation": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.wordWrap": "on"
+}
